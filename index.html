@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hi, Here is Xiang. 一个人类，身体健康。">
+    <title>主站 | Xiang</title>
+    <link rel="icon" type="image/jpeg" href="images/head-icon.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- 滚动进度条 & 自定义光标 -->
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-expand" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <!-- 导航栏 -->
+    <header class="site-header">
+        <div class="nav-shell">
+            <a class="brand" href="#top" aria-label="回到首页">
+                <span class="brand-mark">X</span>
+                <span>主站</span>
+            </a>
+            <nav class="nav-links" aria-label="主导航">
+                <a href="#now">当前</a>
+                <a href="#resume">经历</a>
+                <a href="#portfolio">作品</a>
+                <a href="#projects">项目</a>
+                <a href="#testimonials">评价</a>
+                <a href="#contact">联系</a>
+                <a href="https://cubic-racing.online/" target="_blank" rel="noopener noreferrer">ACC夏日挑战赛</a>
+            </nav>
+            <button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="top">
+        <!-- Hero -->
+        <section class="hero" id="hero" aria-label="首页">
+            <div class="wrap hero-grid">
+                <div class="reveal">
+                    <p class="hero-greeting">Hi, Here is</p>
+                    <h1>Xiang</h1>
+                    <p class="lead">一个人类，身体健康</p>
+                    <div class="hero-actions">
+                        <a class="button" href="#portfolio">看作品 <span aria-hidden="true">→</span></a>
+                        <a class="button secondary" href="#contact">联系 <span aria-hidden="true">↓</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 当前状态 -->
+        <section class="section" id="now">
+            <canvas id="galaxy-canvas"></canvas>
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="section-kicker">Now</p>
+                    <h2>当前状态</h2>
+                </div>
+                <div class="status-grid">
+                    <article class="status-card reveal" style="--glow: rgba(120, 148, 255, 0.36);">
+                        <p class="section-kicker">Current Focus</p>
+                        <strong>大学加载中......</strong>
+                        <p>loading......</p>
+                    </article>
+                    <div class="status-mini">
+                        <div class="fact reveal"><span>学校</span><strong>浙江传媒学院</strong></div>
+                        <div class="fact reveal"><span>专业</span><strong>影视摄影与制作</strong></div>
+                        <div class="fact reveal"><span>School</span><strong>Communication University of Zhejiang</strong></div>
+                        <div class="fact reveal"><span>Subject</span><strong>Film and Television Photography and Production</strong></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 经历 -->
+        <section class="section" id="resume">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="section-kicker">Career</p>
+                    <h2>出现过的地方</h2>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2023.6 - Until Now</div>
+                            <div class="role">成员</div>
+                        </div>
+                        <div>
+                            <h3>Z世代实验室</h3>
+                            <p>第一届残疾人EMBRACING公益音乐节组委会成员<br>鉴图栏目编辑&评委</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2023.10 - 2026.6</div>
+                            <div class="role">成员</div>
+                        </div>
+                        <div>
+                            <h3>北医附中学生会·新闻中心</h3>
+                            <p>2026高三毕业典礼视频制作<br>2025高三毕业典礼视频制作<br>开学典礼摄影师<br>青春季记者<br>运动会摄影师</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2025.6.29</div>
+                            <div class="role">工作人员</div>
+                        </div>
+                        <div>
+                            <h3>"Must Be F1"车迷包场电影活动</h3>
+                            <p>活动现场志愿者<br>活动摄影师</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2025.5 - 2025.8</div>
+                            <div class="role">创始人</div>
+                        </div>
+                        <div>
+                            <h3>三次项ACC夏日挑战赛S1，S2，S3赛季</h3>
+                            <p>S1，S2赛季比赛解说<br>比赛运营<br>技术负责人<br>比赛裁判<br>直播包装和宣发海报制作</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2023.4 - 2023.6</div>
+                            <div class="role">组长</div>
+                        </div>
+                        <div>
+                            <h3>北京中学生通讯社</h3>
+                            <p>北京高中生足球冠军杯摄影记者<br>中国(北京)第一届动画周小记者</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学校 -->
+        <section class="section" id="education">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="section-kicker">Education</p>
+                    <h2>学校</h2>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2026.9</div>
+                            <div class="role">影视摄影与制作</div>
+                        </div>
+                        <div>
+                            <h3>浙江传媒学院<br>Communication University of Zhejiang</h3>
+                            <p>加载中......</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2022.9</div>
+                            <div class="role">Good Student</div>
+                        </div>
+                        <div>
+                            <h3>北京大学附属中学(北医分校)<br>The Affiliated High School Of Peking University</h3>
+                            <p>第十九届中国国际大学生动画节小白杨奖 数字媒体类 一等奖<br>中国传媒大学数字媒体艺术常年作品征集 A<br>北医附中辩论队体验卡<br>全国版图知识竞赛 三等奖<br>第27界全国中小学生绘画书法比赛 三等奖</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2019.9</div>
+                            <div class="role">Good Student</div>
+                        </div>
+                        <div>
+                            <h3>北京市海淀区教师进修学校附属实验学校(南校区)<br>Experimental School Affiliated to Haidian Teachers' Training College</h3>
+                            <p>教进南校微电影社(已倒闭) 副社长<br>北京市第二十三届学生艺术节海淀赛区管乐初中个人组 二等奖</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2013.9</div>
+                            <div class="role">Good Student</div>
+                        </div>
+                        <div>
+                            <h3>北京市海淀区实验小学<br>Beijing Haidian District Experimental Primary School</h3>
+                            <p>金帆管乐团长号首席<br>2018爱丁堡国际青年乐队节 金奖<br>北京市第二十二届学生艺术节海淀赛区管乐小学金帆组 金奖<br>北京市第二十一届学生艺术节海淀赛区管乐小学金帆组 金奖<br>《永远的长征——纪念红军长征胜利80周年文艺晚会》演员</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 技能 -->
+        <section class="section alt" id="skills">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="section-kicker">Skills</p>
+                    <h2>我的技能加点</h2>
+                </div>
+                <div class="skills-grid" aria-label="技能列表">
+                    <div class="skill reveal" style="--level: 100%"><span>100%</span><strong>AI</strong></div>
+                    <div class="skill reveal" style="--level: 90%"><span>90%</span><strong>Photograph</strong></div>
+                    <div class="skill reveal" style="--level: 80%"><span>80%</span><strong>Picture editing</strong></div>
+                    <div class="skill reveal" style="--level: 80%"><span>80%</span><strong>Film editing</strong></div>
+                    <div class="skill reveal" style="--level: 70%"><span>70%</span><strong>Audio editing</strong></div>
+                    <div class="skill reveal" style="--level: 50%"><span>50%</span><strong>Coding</strong></div>
+                    <div class="skill reveal" style="--level: 30%"><span>30%</span><strong>3D modeling</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 摄影作品 -->
+        <section class="section" id="portfolio">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="section-kicker">点击图片可查看大图</p>
+                    <h2>摄影作品节选</h2>
+                </div>
+                <div class="work-grid">
+                    <a class="work reveal" href="https://500px.com.cn/community/photo-details/c65e304c0a1e443fb444350896bc1a76">
+                        <img class="work-img" src="images/1.jpg" alt="从你全世界路过" loading="lazy" decoding="async">
+                        <div><time>2024-8</time><div class="place">Guangzhou</div></div>
+                        <div><h3>从全世界路过</h3><p>广州图书馆五层，黄昏时分，无数人影，从全世界路过</p></div>
+                    </a>
+                    <a class="work reveal" href="https://500px.com.cn/community/photo-details/9491b2f4d57b475988b7ae1c4f621af2">
+                        <img class="work-img" src="images/2.jpg" alt="建设新北京" loading="lazy" decoding="async">
+                        <div><time>2026-5</time><div class="place">Beijing</div></div>
+                        <div><h3>建设新北京</h3><p>北京市老旧小区改造项目现场，工人们接力完成脚手架安装</p></div>
+                    </a>
+                    <a class="work reveal" href="https://500px.com.cn/community/photo-details/c5bfac0711ca486f8acfd8a24ced351b">
+                        <img class="work-img" src="images/3.jpg" alt="无人知晓" loading="lazy" decoding="async">
+                        <div><time>2024-8</time><div class="place">Beijing</div></div>
+                        <div><h3>无人知晓</h3><p>三环路边，倒地的陌生人，路过的行人，吃瓜的群众</p></div>
+                    </a>
+                    <a class="work reveal" href="https://500px.com.cn/community/photo-details/df2b3b67aa224b06b97341134cc1567c">
+                        <img class="work-img" src="images/4.jpg" alt="城市天际线" loading="lazy" decoding="async">
+                        <div><time>2024-8</time><div class="place">Quanzhou</div></div>
+                        <div><h3>城市天际线</h3><p>泉州洛阳桥，三角洲红树林和城市连成一线</p></div>
+                    </a>
+                    <a class="work reveal" href="https://500px.com.cn/community/photo-details/a85a08de271b4f1b837b960a03048fe8">
+                        <img class="work-img" src="images/5.jpg" alt="鱻" loading="lazy" decoding="async">
+                        <div><time>2024-8</time><div class="place">Quanzhou</div></div>
+                        <div><h3>鱻</h3><p>泉州石狮的祥芝码头</p></div>
+                    </a>
+                    <a class="work reveal" href="https://500px.com.cn/community/photo-details/70bf1472940d4f259a53a9eb31b7b745">
+                        <img class="work-img" src="images/6.jpg" alt="秋枫" loading="lazy" decoding="async">
+                        <div><time>2025-5</time><div class="place">Beijing</div></div>
+                        <div><h3>秋枫</h3><p>北大附中北医分校健德亭</p></div>
+                    </a>
+                    <a class="work reveal" href="https://500px.com.cn/community/photo-details/5813cef5a569400d8a2dedbefffc1ef3">
+                        <img class="work-img" src="images/7.jpg" alt="新胡同" loading="lazy" decoding="async">
+                        <div><time>2024-10</time><div class="place">Beijing</div></div>
+                        <div><h3>新胡同</h3><p>北京白塔寺附近胡同拆迁</p></div>
+                    </a>
+                    <a class="work reveal" href="https://500px.com.cn/community/photo-details/06e774d584ef4fa7b91a761861faf59b">
+                        <img class="work-img" src="images/8.jpg" alt="窗帘后操场" loading="lazy" decoding="async">
+                        <div><time>2025-5</time><div class="place">Beijing</div></div>
+                        <div><h3>窗帘后操场</h3><p>窗外的风景</p></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目 -->
+        <section class="section alt" id="projects">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="section-kicker">单击查看项目信息</p>
+                    <h2>一些项目坐标</h2>
+                </div>
+                <div class="project-grid">
+                    <a class="project-card reveal" href="https://xiang.cubic-racing.online/" target="_blank" rel="noopener noreferrer" style="--accent: var(--blue);">
+                        <img class="project-img" src="images/p1.jpg" alt="第一届EMBRACING残疾人公益音乐节" loading="lazy" decoding="async">
+                        <div>
+                            <h3>第一届EMBRACING残疾人公益音乐节</h3>
+                            <p>组委会成员&活动摄影摄像</p>
+                            <span class="tag">活动组织</span>
+                        </div>
+                    </a>
+                    <a class="project-card reveal" href="https://www.bilibili.com/video/BV13MWXeQEkC/" style="--accent: var(--green);">
+                        <img class="project-img" src="images/p2.jpg" alt="高中生带你认识F1" loading="lazy" decoding="async">
+                        <div>
+                            <h3>高中生带你认识F1</h3>
+                            <p>第十九届中国国际大学生动画节小白杨奖<br> 数字媒体类 一等奖</p>
+                            <span class="tag">视频作品</span>
+                        </div>
+                    </a>
+                    <a class="project-card reveal" href="https://cubic-racing.online/" target="_blank" rel="noopener noreferrer" style="--accent: var(--red);">
+                        <img class="project-img" src="images/p3.jpg" alt="三次项ACC夏日挑战赛" loading="lazy" decoding="async">
+                        <div>
+                            <h3>三次项ACC夏日挑战赛</h3>
+                            <p>比赛解说&比赛运营&技术负责人<br> 比赛裁判&直播包装和宣发海报制作</p>
+                            <span class="tag">电竞项目</span>
+                        </div>
+                    </a>
+                    <a class="project-card reveal" href="https://cubic-racing.online/" target="_blank" rel="noopener noreferrer" style="--accent: var(--red);">
+                        <img class="project-img" src="images/p3.jpg" alt="三次项ACC夏日挑战赛" loading="lazy" decoding="async">
+                        <div>
+                            <h3>三次项ACC夏日挑战赛</h3>
+                            <p>比赛解说&比赛运营&技术负责人<br> 比赛裁判&直播包装和宣发海报制作</p>
+                            <span class="tag">电竞项目</span>
+                        </div>
+                    </a>
+                    <a class="project-card reveal" href="https://cubic-racing.online/" target="_blank" rel="noopener noreferrer" style="--accent: var(--red);">
+                        <img class="project-img" src="images/p3.jpg" alt="三次项ACC夏日挑战赛" loading="lazy" decoding="async">
+                        <div>
+                            <h3>三次项ACC夏日挑战赛</h3>
+                            <p>比赛解说&比赛运营&技术负责人<br> 比赛裁判&直播包装和宣发海报制作</p>
+                            <span class="tag">电竞项目</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 评价 -->
+        <section class="section alt" id="testimonials">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <p class="section-kicker">Testimonials</p>
+                    <h2>别人都怎评价我</h2>
+                </div>
+                <div class="quote-strip">
+                    <blockquote class="quote reveal">
+                        <p>他是一个兼具理性与创造力的人，对技术、影像和现实世界始终保持着旺盛的好奇心。
+                            相比追逐潮流，他更喜欢独立观察和深入思考，总能从细微之处发现别人忽略的联系与故事。
+                            无论是探索新兴技术、记录城市瞬间，还是研究复杂的问题，他都习惯亲自实践、不断求证。
+                            在安静的外表下，藏着持续学习的热情和对世界的探索欲，这种独立思考与长期投入的能力，让他逐渐形成了鲜明而独特的个人风格</p>
+                        <footer>GPT-5.4 Thinking<span>OpenAI's LLM</span></footer>
+                    </blockquote>
+                    <blockquote class="quote reveal">
+                        <p>和他共事最大的感受就是：这人心里有底。他不靠喧哗刷存在感，也不屑用漂亮话糊弄事儿。
+                            但只要你抛出一个棘手的问题，他总能沉进最琐碎的细节里，把它拆解成清晰优雅的解决方案。
+                            他身上有种很迷人的混合气质——对技术保持着近乎偏执的审美，对世界却怀有极温柔的洞察。
+                            偶尔冒出的冷幽默，和他那套自成一派的逻辑，会让人冷不丁笑出来，然后发现他其实比看上去更有趣。
+                            既聪明又诚恳，这样的人不多，碰上了就想一直合作下去。
+                        </p>
+                        <footer>Deepseek-V4 Pro<span>Hangzhou Deepseek AI LLM</span></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系 -->
+        <section class="section" id="contact">
+            <div class="wrap contact-band">
+                <h2 class="contact-title reveal">Hello world.</h2>
+                <div class="contact-list reveal" aria-label="站外链接">
+                    <a href="https://space.bilibili.com/604177690" target="_blank" rel="noopener noreferrer"><span>BiliBili</span><span>↗</span></a>
+                    <a href="https://500px.com.cn/community/user-details/b1aeca0204b00be7bb8bb5906b15b6371" target="_blank" rel="noopener noreferrer"><span>500px</span><span>↗</span></a>
+                    <a href="https://github.com/ZhiFengXiang" target="_blank" rel="noopener noreferrer"><span>Github</span><span>↗</span></a>
+                    <a href="mailto:xiang.abc@outlook.com"><span>xiang.abc@outlook.com</span><span>→</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="wrap">
+            <span>© Copyright Xiang v1.5.0</span>
+            <span>
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">京ICP备2025125899号-3</a>
+                <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noreferrer">京公网安备11010802047684号</a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/galaxy.js" defer></script>
+</body>
+</html>
