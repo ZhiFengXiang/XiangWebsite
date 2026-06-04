@@ -136,9 +136,21 @@
         }, 16);
         window.addEventListener('scroll', handleScroll, { passive: true });
 
-        // ---- 4. 技能数字计数动画（共享单一 Observer）----
-        // 当技能方块进入视口时，从 0 递增到目标百分比
+        // ---- 4. 技能卡片黄色辉光亮度（按百分比分级）----
+        // 百分比越高，黄色越亮；30% 以下用暗黄，100% 用亮黄
         const skillElements = document.querySelectorAll('.skill');
+        skillElements.forEach(skill => {
+            const level = parseInt(skill.style.getPropertyValue('--level')) || 0;
+            const t = level / 100;
+            // low: 0.01 → 0.38,  high: 0.02 → 0.85
+            const low  = (0.01 + t * 0.37).toFixed(2);
+            const high = (0.02 + t * 0.83).toFixed(2);
+            skill.style.setProperty('--glow-low', low);
+            skill.style.setProperty('--glow-high', high);
+        });
+
+        // ---- 5. 技能数字计数动画（共享单一 Observer）----
+        // 当技能方块进入视口时，从 0 递增到目标百分比
         const countObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
@@ -323,4 +335,3 @@
                 cursorRing.classList.remove('hover');
             }, true);
         }
-
