@@ -1,4 +1,4 @@
-# Xiang's Website v1.5.0
+# Xiang's Website v1.6.0
 
 个人网站源码，展示摄影作品、项目经历与个人信息。
 
