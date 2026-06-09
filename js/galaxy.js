@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 银河系星云背景动画 v6 (优化版)
  * 优化: 可见性检测、预计算渐变、批量绘制星星、移动端降级
  */
@@ -449,7 +449,7 @@
     function startAnimation() {
         if (!isRunning) {
             isRunning = true;
-            startTime = performance.now() / 1000;
+            // Don't reset startTime here - let animate() handle it on first frame
             animate();
         }
     }

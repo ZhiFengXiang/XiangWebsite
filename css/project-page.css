@@ -1,0 +1,272 @@
+﻿/* Project detail page — Apple editorial style v9 */
+
+/* ── Body Background ── */
+body {
+  background: #090a0d;
+}
+
+/* ── Section ── */
+.pj-section {
+  padding: 80px 0 40px;
+}
+
+.pj-section + .pj-section {
+  border-top: 1px solid var(--line);
+}
+
+.pj-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Breadcrumb ── */
+.pj-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pj-breadcrumb:hover {
+  color: var(--ink);
+}
+
+/* ── Header typography ── */
+.pj-kicker {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.pj-title {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.pj-lead {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+/* ── Chips ── */
+.pj-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.pj-chips span {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(20, 22, 27, 0.4);
+  color: var(--ink);
+  font-size: 0.8rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── Editorial body ── */
+.pj-body {
+  margin-bottom: 40px;
+}
+
+.pj-body p {
+  margin: 0 0 20px;
+  font-size: clamp(1rem, 1.5vw, 1.08rem);
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.pj-body p:last-child {
+  margin-bottom: 0;
+}
+
+.pj-h3 {
+  margin: 32px 0 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* ── Image rows ── */
+.pj-img-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.pj-img-row--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pj-img-row figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.pj-img-row img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.pj-img-row figcaption {
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ── Stats ── */
+.pj-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 40px 0;
+}
+
+.pj-stat {
+  padding: 24px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(20, 22, 27, 0.45);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+.pj-stat-num {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.pj-stat-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ── External link buttons ── */
+.pj-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 36px 0;
+}
+
+.pj-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 280ms cubic-bezier(.25,.46,.45,.94),
+              box-shadow 280ms cubic-bezier(.25,.46,.45,.94),
+              background 280ms ease,
+              color 280ms ease;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+.pj-link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+.pj-link-btn:active {
+  transform: translateY(0);
+}
+
+.pj-link-btn .pj-link-arrow {
+  display: inline-flex;
+  transition: transform 240ms ease;
+}
+
+.pj-link-btn:hover .pj-link-arrow {
+  transform: translateX(3px);
+}
+
+.pj-link-url {
+  font-size: 0.76rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+/* ── Caption ── */
+.pj-caption {
+  margin: 20px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+/* ── Galaxy canvas ── */
+main {
+  position: relative;
+}
+
+#galaxy-canvas {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ensure content stays above canvas */
+.pj-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .pj-section {
+    padding: 56px 0 28px;
+  }
+
+  .pj-img-row--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pj-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .pj-links {
+    flex-direction: column;
+  }
+
+  .pj-link-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

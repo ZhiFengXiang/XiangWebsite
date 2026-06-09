@@ -1,11 +1,11 @@
-
-        /* Cubic Racing 主站样式表 v1.4.4
-         * 特性：暗色调 · 毛玻璃卡片 · 滚动渐显 · 自定义光标 · 时间线 · 技能条
-         *       Canvas 银河背景 · 流星 · 光标镜头反色 · 3D 卡片倾斜 · 响应式布局
+﻿
+        /* Cubic Racing 閿熸枻鎷风珯閿熸枻鎷峰紡??v1.4.4
+         * 閿熸枻鎷烽敓鐨嗭綇鎷烽敓鏂ゆ嫹鑹??閿熸枻鎷?姣涢敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�??閿熸枻鎷?閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹 閿熸枻鎷?閿熺殕璁规嫹閿熸枻鎷烽敓??閿熸枻鎷?鏃堕敓鏂ゆ嫹??閿熸枻鎷?閿熸枻鎷烽敓鏂ゆ嫹閿熸枻�?
+         *       Canvas 閿熸枻鎷烽敓鎺ユ唻鎷烽敓鏂ゆ�?閿熸枻鎷?閿熸枻鎷烽敓鏂ゆ�?閿熸枻鎷?閿熸枻鎷锋槂浣庡嚖鎷烽敓�?閿熸枻鎷?3D 閿熸枻鎷风墖閿熸枻鎷锋枩 閿熸枻鎷?閿熸枻鎷峰簲寮忛敓鏂ゆ嫹閿熸枻鎷?
          */
 
-        /* ---- CSS 变量 ---- */
-        /* 这些变量可以在整个页面中重复使用，改一处全局生效 */
+        /* ---- CSS 閿熸枻鎷烽敓鏂ゆ�?---- */
+        /* 閿熸枻鎷蜂簺閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹閿熸埅闈╂嫹浣块敓鐭綇鎷烽敓鏂ゆ嫹涓€閿熸枻鎷峰叏閿熸枻鎷烽敓鏂ゆ嫹鏁?*/
         :root {
             --bg: #090a0d;
             --paper: #14161b;
@@ -22,58 +22,55 @@
             --card-bg: rgba(20, 22, 27, 0.76);
             --hover-bg: rgba(245, 241, 232, 0.1);
             --glass-bg: rgba(20, 22, 27, 0.2);
+            --glass-nav: rgba(18, 18, 24, 0.45);
+            --glass-blur-nav: blur(48px) saturate(2) brightness(1.08);
+            --glass-blur-card: blur(64px) saturate(2) brightness(1.08);
             --glass-blur: blur(20px);
         }
 
-        /* ---- 全局重置：让所有元素的宽高计算方式统一 ---- */
+        /* ---- 鍏ㄩ敓鏂ゆ嫹閿熸枻鎷烽敓鐭綇鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹鍏冮敓鎴殑鍖℃嫹鍛掗敓鏂ゆ嫹鎯寸粸閰甸�?---- */
         * {
             box-sizing: border-box;
         }
 
-        /* 点击锚点链接时，页面会平滑滚动而不是瞬间跳转 */
+        /* 閿熸枻鎷烽敓鐭亷鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓缁炴唻鎷烽敓鎻鎷烽敓鏂ゆ嫹骞抽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷风灛閿熸枻鎷烽敓鏂ゆ�??*/
         html {
             scroll-behavior: smooth;
         }
 
-        /* ---- 页面主体样式 ---- */
-        /* 深色背景 + 微妙的网格线 + 左上和右上各一个彩色光晕 */
-        /* 这就是你看到的网站那个带网格和光斑的背景效果 */
+        /* ---- 椤甸敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷峰�?---- */
+        /* 閿熸枻鎷疯壊閿熸枻鎷烽敓鏂ゆ�?+ 寰敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽�?+ 閿熸枻鎷烽敓杈冪尨鎷烽敓鏂ゆ嫹閿熻緝闈╂嫹涓€閿熸枻鎷烽敓鏂ゆ嫹鑹查敓鏂ゆ嫹??*/
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷锋啩杈炬嫹閿熸枻鎷烽敓鏂ゆ嫹閿熺Ц鎾呮嫹姝夐敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熼叺鐧告嫹鍙╄皨閿熸枻鎷烽敓鍙嶆嫹�?*/
         body {
             margin: 0;
             color: var(--ink);
             animation: pageIn 0.8s ease;
             cursor: none;
-            background:
-                radial-gradient(circle at 14% 8%, rgba(120, 148, 255, 0.22), transparent 30%),
-                radial-gradient(circle at 86% 18%, rgba(255, 115, 93, 0.16), transparent 28%),
-                linear-gradient(90deg, rgba(245, 241, 232, 0.045) 1px, transparent 1px),
-                linear-gradient(180deg, rgba(245, 241, 232, 0.035) 1px, transparent 1px),
-                var(--bg);
-            background-size: 42px 42px;
+    background: var(--bg);
             font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
             line-height: 1.65;
             letter-spacing: 0;
         }
 
-        /* 强制所有交互元素隐藏系统光标 */
+        /* 寮洪敓鏂ゆ嫹閿熸枻鎷烽敓鍙枻鎷烽敓鏂ゆ嫹鍏冮敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹绯荤粺閿熸枻�??*/
         a, button, input, textarea, select,
         .button, .nav-links a, .contact-list a,
         .menu-toggle, .work-link, .brand {
             cursor: none;
         }
 
-        /* 手机端菜单打开时，禁止页面滚动 */
+        /* 閿熻浼欐嫹閿熷壙鑿滅鎷烽敓鏂ゆ嫹鏃堕敓鏂ゆ嫹閿熸枻鎷锋椤甸敓鏂ゆ嫹閿熸枻鎷烽敓?*/
         body.menu-open {
             overflow: hidden;
         }
 
-        /* 链接样式：继承父元素颜色，去掉下划线 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷峰紡閿熸枻鎷烽敓鏁欐壙闈╂嫹鍏冮敓鏂ゆ嫹閿熸枻鎷疯壊閿熸枻鎷峰幓閿熸枻鎷烽敓閾颁紮鎷烽敓鏂ゆ嫹 */
         a {
             color: inherit;
             text-decoration: none;
         }
 
-        /* 图片/矢量图/画布：块级显示，最大宽度不超过父容器 */
+        /* 鍥剧�?鐭㈤敓鏂ゆ嫹??閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓浠嬬骇閿熸枻鎷风ず閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷风倲閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿??*/
         img,
         svg,
         canvas {
@@ -81,9 +78,9 @@
             max-width: 100%;
         }
 
-        /* ---- 顶部导航栏 ---- */
-        /* 固定在页面顶部，滚动时始终可见 */
-        /* pointer-events: none 让容器本身不拦截点击，里面的元素单独开启 */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹??---- */
+        /* 閿熸暀璁规嫹閿熸枻鎷烽〉閿熻姤椤堕敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷锋椂濮嬮敓绉稿尅鎷??*/
+        /* pointer-events: none 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷锋皭閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熺殕顏庢嫹姘愰敓鏂ゆ嫹閿熸枻鎷烽�??*/
         .site-header {
             position: fixed;
             top: 18px;
@@ -97,7 +94,7 @@
             transform: translateY(-140%) !important;
         }
 
-        /* 导航栏的"胶囊"容器：半透明深色背景 + 圆角 + 毛玻璃模糊效果 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹"閿熸枻鎷烽敓鏂ゆ�?閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閫忛敓鏂ゆ嫹閿熸枻鎷疯壊閿熸枻鎷烽敓鏂ゆ�?+ 鍦嗛敓鏂ゆ嫹 + 姣涢敓鏂ゆ嫹閿熸枻鎷锋ā閿熸枻鎷锋�??*/
         .nav-shell {
             width: min(1120px, calc(100% - 32px));
             margin: 0 auto;
@@ -106,16 +103,18 @@
             align-items: center;
             justify-content: space-between;
             gap: 14px;
-            background: rgba(14, 16, 21, 0.78);
-            border: 1px solid var(--line);
+            background: rgba(20, 22, 27, 0.4);
+            border: none;
             border-radius: 999px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.38);
-            -webkit-backdrop-filter: blur(18px);
-            backdrop-filter: blur(18px);
+            box-shadow:
+                0 8px 40px rgba(0, 0, 0, 0.25),
+                0 1px 0 rgba(255, 255, 255, 0.04) inset;
+            -webkit-backdrop-filter: var(--glass-blur-nav);
+            backdrop-filter: var(--glass-blur-nav);
             pointer-events: auto;
         }
 
-        /* 左侧品牌标识（logo + "主站"文字）的布局 */
+        /* 閿熸枻鎷烽敓鐙″嚖鎷风エ閿熺粸璁规嫹閿熺担ogo + "閿熸枻鎷风珯"閿熸枻鎷烽敓琛楋綇鎷烽敓渚ヨ鎷烽敓鏂ゆ�?*/
         .brand {
             display: inline-flex;
             align-items: center;
@@ -124,7 +123,7 @@
             font-weight: 750;
         }
 
-        /* logo 圆形图标：白色背景 + 深色文字的圆形 "X" 标记 */
+        /* logo 鍦嗛敓鏂ゆ嫹鍥鹃敓鐤ワ細閿熸枻鎷疯壊閿熸枻鎷??+ 閿熸枻鎷疯壊閿熸枻鎷烽敓琛楃鎷峰渾??"X" 閿熸枻鎷烽敓?*/
         .brand-mark {
             width: 30px;
             height: 30px;
@@ -137,14 +136,14 @@
             letter-spacing: 0.02em;
         }
 
-        /* 右侧导航链接栏：水平排列各个页面锚点链接 */
+        /* 閿熸彮渚у閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷锋按骞抽敓鏂ゆ嫹閿熷彨闈╂嫹閿熸枻鎷烽〉閿熸枻鎷烽敋閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷?*/
         .nav-links {
             display: flex;
             align-items: center;
             gap: 4px;
         }
 
-        /* 单个导航链接的样式：灰色文字 + 胶囊圆角 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鎺ョ鎷烽敓鏂ゆ嫹寮忛敓鏂ゆ嫹閿熸枻鎷疯壊閿熸枻鎷烽敓鏂ゆ嫹 + 閿熸枻鎷烽敓鏂ゆ嫹鍦嗛敓鏂ゆ�?*/
         .nav-links a {
             padding: 8px 12px;
             color: var(--muted);
@@ -153,7 +152,7 @@
             transition: color 240ms ease, background 240ms ease, transform 240ms ease;
         }
 
-        /* 鼠标悬停 或 当前所在板块对应的导航链接：变亮 + 微微上浮 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熼叺???閿熸枻鎷峰墠閿熸枻鎷烽敓鑺傚府鎷烽敓鏂ゆ嫹搴旈敓渚ョ鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鎺ワ綇鎷烽敓鏂ゆ嫹??+ 寰井閿熻緝闈╂�?*/
         .nav-links a:hover,
         .nav-links a.is-active {
             color: var(--ink);
@@ -161,8 +160,8 @@
             transform: translateY(-1px);
         }
 
-        /* ---- 手机端汉堡菜单按钮 ---- */
-        /* 默认隐藏（桌面端不需要），在小屏幕媒体查询中才显示 */
+        /* ---- 閿熻浼欐嫹閿熷壙鐚存嫹閿熸枻鎷烽敓鍓跨鎷烽敓鏂ゆ�??---- */
+        /* 榛橀敓鏂ゆ嫹閿熸枻鎷烽敓鎴綇鎷烽敓鏂ゆ嫹閿熸枻鎷风灛閿熸枻鎷烽敓鎻亷鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鍙槄鎷烽敓渚ュ够鏂ゆ嫹閿熸枻鎷疯閿熷彨璇ф嫹閿熸枻�??*/
         .menu-toggle {
             display: none;
             width: 40px;
@@ -175,7 +174,7 @@
             cursor: none;
         }
 
-        /* 汉堡图标由一条横线 + 上下两条伪元素横线组成（三条线） */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹鍥鹃敓鏂ゆ嫹閿熸枻鎷蜂竴閿熸枻鎷烽敓鏂ゆ嫹??+ 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹浼厓閿熸埅鐚存嫹閿熸枻鎷烽敓鏂ゆ嫹妗戦敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹鎾搁敓?*/
         .menu-toggle span,
         .menu-toggle span::before,
         .menu-toggle span::after {
@@ -203,7 +202,7 @@
             top: 6px;
         }
 
-        /* 菜单打开时：中间那条线隐藏，上下两条旋转成 "X" 形状 */
+        /* 閿熷壙纰夋嫹閿熸枻鎷锋椂閿熸枻鎷烽敓鍙》鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鎴綇鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹杞??"X" 閿熸枻鎷风姸 */
         .menu-open .menu-toggle span {
             background: transparent;
         }
@@ -216,13 +215,18 @@
             transform: translateY(-6px) rotate(-45deg);
         }
 
-        /* ---- 主内容区域 ---- */
-        /* overflow: hidden 防止动画元素溢出到页面外 */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹??---- */
+        /* overflow: hidden 閿熸枻鎷锋閿熸枻鎷烽敓鏂ゆ嫹鍏冮敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸彮绛规嫹閿熸枻鎷烽敓?*/
         main {
             overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        main.main-visible {
+            opacity: 1;
         }
 
-        /* ---- 板块通用基础 ---- */
+        /* ---- 閿熸枻鎷烽敓閰殿煉鎷锋病閿熸枻鎷烽敓?---- */
         .section {
             padding: 104px 0;
             position: relative;
@@ -230,7 +234,7 @@
             overflow: hidden;
         }
 
-        /* 板块装饰层：每个板块独立定义，边缘淡出遮罩 */
+        /* 閿熸枻鎷烽敓闃跺府鎷峰熬鎮栧ソ鍖℃嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷锋竟顒婃嫹閿熺殕纰夋嫹閿熸枻鎷烽敓鏂ゆ嫹�??*/
         .section::before {
             content: "";
             position: absolute;
@@ -246,38 +250,38 @@
             z-index: 1;
         }
 
-        /* ---- #now 当前状态 ----
-         * 此板块使用 Canvas 银河系星云背景（galaxy.js），
-         * 卡片采用高模糊度毛玻璃效果以透出星空，
-         * 光标镜头（反色圆形）和 3D 倾斜效果均由 JS 事件委托驱动，
-         * 3D 倾斜幅度已减弱（约为其他板块的 35%），避免过度干扰。
+        /* ---- #now 閿熸枻鎷峰墠�??----
+         * 閿熷壙甯嫹閿熺�??Canvas 閿熸枻鎷烽敓鏂ゆ嫹绯婚敓鏂ゆ嫹閿熺嫛鎲嬫嫹閿熸枻鎷烽敓鏂ゆ嫹galaxy.js閿熸枻鎷烽敓鏂ゆ�?
+         * 閿熸枻鎷风墖閿熸枻鎷烽敓鐭潻鎷锋ā閿熸枻鎷烽敓鏂ゆ嫹姣涢敓鏂ゆ嫹閿熸枻鎷锋晥閿熸枻鎷烽敓鏂ゆ嫹閫忛敓鏂ゆ嫹閿熻鍖℃�??
+         * 閿熸枻鎷锋槂浣庡嚖鎷烽敓鏂ゆ嫹閿熺即顐戣鎷峰嵄�??3D 閿熸枻鎷锋枩鏁堥敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�?JS 閿熼摪纭锋嫹濮旈敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�??
+         * 3D 閿熸枻鎷锋枩閿熸枻鎷烽敓鏂ゆ嫹閿熺獤纭锋嫹閿熸枻鎷烽敓鏂ゆ嫹绾︿负閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓??35%閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽泙閿熸枻鎷烽敓??
          */
         #now {
             background: #090a0d;
             position: relative;
-            overflow: hidden;
             min-height: 500px;
         }
-        #galaxy-canvas {
+        #now-canvas {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
+            pointer-events: none;
         }
         #now .wrap {
             position: relative;
             z-index: 1;
         }
 
-        /* ---- #now 板块卡片磨砂效果 ---- */
+        /* ---- #now 閿熸枻鎷锋Ν銊嗩儫銉夐澏褝鎷烽�?---- */
         #now .status-card,
         #now .fact {
-            background: rgba(14, 16, 22, 0.18);
-            -webkit-backdrop-filter: blur(48px) saturate(1.6) brightness(1.12);
-            backdrop-filter: blur(48px) saturate(1.6) brightness(1.12);
-            border-color: rgba(245, 241, 232, 0.12);
+            background: rgba(20, 22, 27, 0.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.5);
+            backdrop-filter: blur(20px) saturate(1.5);
+            border: none;
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.18),
                 inset 0 -1px 0 rgba(255, 255, 255, 0.06),
@@ -297,7 +301,7 @@
         }
         #now .status-card.reveal.is-visible:hover,
         #now .fact.reveal.is-visible:hover {
-            border-color: rgba(245, 241, 232, 0.22);
+              border: none;
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.22),
                 inset 0 -1px 0 rgba(255, 255, 255, 0.08),
@@ -308,7 +312,7 @@
             transform-style: preserve-3d;
         }
 
-        /* ---- #resume 出现过的地方：斜细线 + 右下琥珀光晕 ---- */
+        /* ---- #resume 閿熸枻鎷烽敓琛楃櫢鎷烽敓渚ュ湴鍑ゆ嫹閿熸枻鎷锋枩缁嗛敓鏂ゆ嫹 + 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓?---- */
         #resume {
             background:
                 linear-gradient(to bottom, #090a0d, transparent 100px),
@@ -319,10 +323,11 @@
         }
         #resume::before {
             background:
-                linear-gradient(90deg, rgba(245, 241, 232, 0.07) 1px, transparent 1px),
-                linear-gradient(0deg, rgba(245, 241, 232, 0.07) 1px, transparent 1px),
-                radial-gradient(ellipse at 88% 80%, rgba(215, 168, 79, 0.28) 0%, transparent 68%);
-            background-size: 48px 48px, 48px 48px, auto;
+                linear-gradient(90deg, rgba(245, 241, 232, 0.12) 0.5px, transparent 0.5px),
+                linear-gradient(0deg, rgba(245, 241, 232, 0.10) 0.5px, transparent 0.5px),
+                radial-gradient(circle at 1px 1px, rgba(245, 241, 232, 0.06) 1px, transparent 1px),
+                radial-gradient(ellipse at 85% 75%, rgba(120, 148, 255, 0.18) 0%, transparent 60%);
+            background-size: 40px 40px, 40px 40px, 40px 40px, auto;
         }
         #resume::after {
             content: "";
@@ -339,7 +344,7 @@
             animation: driftWarm 22s ease-in-out infinite alternate;
         }
 
-        /* ---- #education 学校：细十字网格 + 右上青绿光晕 ---- */
+        /* ---- #education 瀛︽牎閿熸枻鎷风粏鍗侀敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�?+ 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏁欑櫢鎷烽敓鏂ゆ嫹 ---- */
         #education {
             background:
                 linear-gradient(to bottom, #090a0d, transparent 100px),
@@ -370,37 +375,49 @@
             animation: driftCool 20s ease-in-out infinite alternate;
         }
 
-        /* ---- #skills 技能加点：深暖底 + 交叉斜短划线 + 左下暖金光晕 ---- */
+        /* ---- #skills 閿熸枻鎷烽敓鏉板姞鐐癸細閿熸枻鎷锋殩??+ 閿熸枻鎷烽敓鏂ゆ嫹鏂滈敓鏁欎紮鎷烽敓鏂ゆ�?+ 閿熸枻鎷烽敓鏂ゆ嫹鏆栭敓鏂ゆ嫹閿熸枻鎷烽�?---- */
         #skills {
-            background:
-                linear-gradient(to bottom, #090a0d, transparent 100px),
-                linear-gradient(to top, #090a0d, transparent 100px),
-                linear-gradient(180deg, #0d0b08 0%, #0f0d0a 50%, #0d0b08 100%);
+    background:
+        linear-gradient(to bottom, #090a0d, transparent 100px),
+        linear-gradient(to top, #090a0d, transparent 100px),
+        linear-gradient(180deg, #0d0b08 0%, #0f0d0a 50%, #0d0b08 100%);
+    background-position: top, bottom, 0 0;
+    background-size: 100% 100px, 100% 100px, auto;
             background-position: top, bottom, 0 0;
             background-size: 100% 100px, 100% 100px, auto;
         }
         #skills::before {
-            background:
-                repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(245, 241, 232, 0.04) 18px, rgba(245, 241, 232, 0.04) 19px),
-                repeating-linear-gradient(-45deg, transparent, transparent 18px, rgba(245, 241, 232, 0.04) 18px, rgba(245, 241, 232, 0.04) 19px),
-                radial-gradient(ellipse at 14% 82%, rgba(215, 168, 79, 0.32) 0%, transparent 66%);
+            background: none;
         }
         #skills::after {
-            content: "";
+            background: none;
+        }
+        #skills-smoke-canvas {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 0;
             pointer-events: none;
-            background:
-                radial-gradient(2px 2px at 30% 70%, rgba(215, 168, 79, 0.3), transparent),
-                radial-gradient(2.5px 2.5px at 65% 35%, rgba(215, 168, 79, 0.42), transparent),
-                radial-gradient(2.5px 2.5px at 80% 85%, rgba(245, 241, 232, 0.32), transparent),
-                radial-gradient(3px 3px at 15% 50%, rgba(215, 168, 79, 0.46), transparent);
-            background-size: 240px 280px;
-            animation: driftGold 24s ease-in-out infinite alternate;
+            will-change: contents;
         }
-
-        /* ---- #portfolio 摄影作品：极细水平线 + 中央深靛蓝光晕 ---- */
+        #skills,
+        #skills * {
+            cursor: none;
+        }
+        .cursor-dot,
+        .cursor-expand,
+        .cursor-ring {
+            transition: opacity 300ms ease;
+        }
+        body.skills-cursor-hide .cursor-dot,
+        body.skills-cursor-hide .cursor-expand,
+        body.skills-cursor-hide .cursor-ring {
+            opacity: 0 !important;
+            transform: scale(0) !important;
+        }
+        /* ---- #portfolio 閿熸枻鎷峰奖閿熸枻鎷峰搧閿熸枻鎷烽敓鏂ゆ嫹缁嗘按骞抽敓鏂ゆ嫹 + 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓??---- */
         #portfolio {
             background:
                 linear-gradient(to bottom, #090a0d, transparent 100px),
@@ -411,7 +428,6 @@
         }
         #portfolio::before {
             background:
-                repeating-linear-gradient(0deg, transparent, transparent 47px, rgba(245, 241, 232, 0.025) 47px, rgba(245, 241, 232, 0.025) 48px),
                 radial-gradient(ellipse at 50% 0%, rgba(245, 241, 232, 0.05) 0%, transparent 60%),
                 radial-gradient(ellipse at 50% 50%, rgba(110, 100, 200, 0.26) 0%, transparent 65%);
         }
@@ -430,7 +446,7 @@
             animation: driftDim 26s ease-in-out infinite alternate;
         }
 
-        /* ---- #projects 一些项目坐标：密点阵 + 左上绿色光晕 ---- */
+        /* ---- #projects 涓€浜涢敓鏂ゆ嫹鐩敓鏂ゆ嫹閿熺枼锛氶敓鏉扮鎷??+ 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷疯壊閿熸枻鎷烽敓鏂ゆ嫹 ---- */
         #projects {
             background:
                 linear-gradient(to bottom, #090a0d, transparent 100px),
@@ -460,7 +476,7 @@
             animation: driftGreen 19s ease-in-out infinite alternate;
         }
 
-        /* ---- #testimonials 评价：菱形纹理 + 居中蓝色微光 ---- */
+        /* ---- #testimonials 閿熸枻鎷烽敓妗旓綇鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹??+ 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷疯壊寰敓鏂ゆ嫹 ---- */
         #testimonials {
             background:
                 linear-gradient(to bottom, #090a0d, transparent 100px),
@@ -471,9 +487,8 @@
         }
         #testimonials::before {
             background:
-                linear-gradient(45deg, rgba(245, 241, 232, 0.03) 25%, transparent 25% 50%, rgba(245, 241, 232, 0.03) 50% 75%, transparent 75%),
                 radial-gradient(ellipse at 50% 30%, rgba(120, 148, 255, 0.12) 0%, transparent 55%);
-            background-size: 40px 40px, auto;
+            background-size: auto;
         }
         #testimonials::after {
             content: "";
@@ -490,7 +505,7 @@
             animation: driftBlue 21s ease-in-out infinite alternate;
         }
 
-        /* ---- #contact 联系：疏朗大点阵 + 右下深红玫瑰光晕 ---- */
+        /* ---- #contact 閿熸枻鎷风郴閿熸枻鎷烽敓鏂ゆ嫹閿熺粸杈炬嫹閿熸枻鎷烽�?+ 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鐭鎷烽敓鏂ゆ嫹閿熸枻鎷?---- */
         #contact {
             background:
                 linear-gradient(to bottom, #090a0d, transparent 100px),
@@ -520,23 +535,37 @@
             animation: driftRed 23s ease-in-out infinite alternate;
         }
 
-        /* .wrap 是内容容器：最大宽度 1120px，自动居中 */
+        /* .wrap 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹??1120px閿熸枻鎷烽敓鐨嗚鎷烽敓鏂ゆ�??*/
         .wrap {
             width: min(1120px, calc(100% - 40px));
             margin: 0 auto;
         }
 
-        /* ---- Hero 首屏区域 ---- */
-        /* 占满整个视口高度，内容靠底部对齐 */
+        /* ---- Hero 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹 ---- */
+        /* 鍗犻敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸帴鍙ｉ珮搴︼綇鎷烽敓鏂ゆ嫹閿熸嵎鍖℃嫹閿熼樁璇ф嫹閿熸枻鎷烽敓鏂ゆ嫹 */
         .hero {
             min-height: 100vh;
             padding: 132px 0 70px;
             display: grid;
             align-items: end;
             position: relative;
+            overflow: hidden;
+            background: #090a0d;
+        }
+        .hero #galaxy-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .hero > .wrap {
+            position: relative;
+            z-index: 1;
         }
 
-        /* Hero 底部的渐变遮罩：从透明过渡到深色，让下方内容自然衔接 */
+        /* Hero 閿熼樁璇ф嫹閿熶茎鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熻锝忔嫹閿熸枻鎷烽€忛敓鏂ゆ嫹閿熸枻鎷烽敓缂寸鎷烽敓鏂ゆ嫹鑹查敓鏂ゆ嫹閿熸枻鎷烽敓閾板嚖鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹鐒堕敓鏂ゆ嫹??*/
         .hero::after {
             content: "";
             position: absolute;
@@ -546,7 +575,7 @@
             pointer-events: none;
         }
 
-        /* Hero 内容布局：标题+按钮填满整行 */
+        /* Hero 閿熸枻鎷烽敓鎹疯鎷烽敓琛楋綇鎷烽敓鏂ゆ�??閿熸枻鎷烽挳閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹 */
         .hero-grid {
             position: relative;
             z-index: 1;
@@ -556,7 +585,7 @@
             align-items: end;
         }
 
-        /* ---- 标题和段落排版 ---- */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹鎶曢敓鏂ゆ嫹閿熸枻鎷烽�??---- */
         h1,
         h2,
         h3,
@@ -564,7 +593,7 @@
             margin-top: 0;
         }
 
-        /* hero-greeting：首页小字引导 "Hi, Here is" */
+        /* hero-greeting閿熸枻鎷烽敓鏂ゆ嫹椤靛皬閿熸枻鎷烽敓鏂ゆ�??"Hi, Here is" */
         .hero-greeting {
             margin-bottom: 0;
             color: var(--muted);
@@ -574,7 +603,7 @@
             letter-spacing: 0.02em;
         }
 
-        /* h1：首页主体名字 "Xiang"，超大字号 */
+        /* h1閿熸枻鎷烽敓鏂ゆ嫹椤甸敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹??"Xiang"閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹??*/
         h1 {
             max-width: 850px;
             margin-bottom: 28px;
@@ -583,7 +612,7 @@
             letter-spacing: 0;
         }
 
-        /* h2：各板块的标题 */
+        /* h2閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓渚ユ唻�??*/
         h2 {
             margin-bottom: 20px;
             font-size: clamp(2.35rem, 5vw, 5.4rem);
@@ -591,21 +620,21 @@
             letter-spacing: 0;
         }
 
-        /* h3：卡片内的小标题 */
+        /* h3閿熸枻鎷烽敓鏂ゆ嫹鐗囬敓鑺傜鎷峰皬閿熸枻鎷烽敓鏂ゆ�?*/
         h3 {
             margin-bottom: 10px;
             font-size: clamp(1.25rem, 2vw, 1.75rem);
             line-height: 1.16;
         }
 
-        /* .lead：大号正文，用于重要描述段落 */
+        /* .lead閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹妯￠敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸彮顏庢嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓?*/
         .lead {
             max-width: 660px;
             color: var(--muted);
             font-size: clamp(1.08rem, 2vw, 1.35rem);
         }
 
-        /* ---- 按钮组 ---- */
+        /* ---- 閿熸枻鎷烽挳??---- */
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
@@ -613,7 +642,7 @@
             align-items: center;
         }
 
-        /* 主按钮："看作品"等实心按钮，浅色背景 + 深色文字 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閽敓鏂ゆ嫹"閿熸枻鎷烽敓鏂ゆ�??閿熸枻鎷峰疄閿熶茎甯嫹閽敓鏂ゆ嫹娴呰壊閿熸枻鎷烽敓鏂ゆ嫹 + 閿熸枻鎷疯壊閿熸枻鎷烽敓鏂ゆ�?*/
         .button {
             min-height: 44px;
             padding: 10px 16px;
@@ -631,17 +660,17 @@
 
         .button:hover {
             transform: translateY(-3px);
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
-        /* 次要按钮："联系"等透明边框按钮 */
+        /* 閿熸枻鎷疯閿熸枻鎷烽挳??閿熸枻鎷风郴"閿熸枻鎷烽€忛敓鏂ゆ嫹閿熺鍖℃嫹閽?*/
         .button.secondary {
             color: var(--ink);
             background: transparent;
         }
 
-        /* ---- 板块标题区域（通用样式）---- */
-        /* 左边是英文小标签（如 "Now"），右边是中文大标题 */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽€氶敓鏂ゆ嫹閿熸枻鎷峰�??--- */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸帴顫嫹閿熷彨鈽呮嫹閿熻鈺嬫嫹閿熸枻鎷烽�?"Now"閿熸枻鎷烽敓鏂ゆ嫹閿熸彮鎲嬫嫹閿熸枻鎷烽敓鏂ゆ嫹閿熶茎杈炬嫹閿熸枻鎷烽敓?*/
         .section-head {
             display: grid;
             grid-template-columns: minmax(160px, 0.38fr) minmax(0, 0.62fr);
@@ -650,7 +679,7 @@
             margin-bottom: 54px;
         }
 
-        /* 板块英文小标签：全大写、小字号、灰色 */
+        /* 閿熸枻鎷烽敓鎺ヮ澁鎷烽敓鍙槄鎷烽敓瑙掆晪鎷烽敓楗侯偓鎷烽敓鍙揪鎷烽敓鍙槄鎷疯毒鎷ч敓鏂ゆ嫹閿??*/
         .section-kicker {
             margin: 0;
             color: var(--muted);
@@ -660,14 +689,14 @@
             text-transform: uppercase;
         }
 
-        /* ---- 自我介绍布局（当前未使用，预留） ---- */
+        /* ---- 閿熸枻鎷烽敓鎻枻鎷烽敓鏉拌鎷烽敓琛楋綇鎷烽敓鏂ゆ嫹鍓嶆湭浣块敓鐭綇鎷烽閿熸枻鎷烽�?---- */
         .about-layout {
             display: grid;
             grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.28fr);
             gap: 28px;
         }
 
-        /* 左侧自我介绍区块：带边框和深色背景的卡片 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷峰尰閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷锋鐚存嫹閿熸枻鎷峰憱閿熸枻鎷烽敓鏂ゆ嫹鑹查敓鏂ゆ嫹閿熸枻鎷烽敓渚ュ尅鎷风墖 */
         .statement {
             padding: clamp(26px, 5vw, 54px);
             border: 1px solid var(--line);
@@ -675,28 +704,28 @@
             background: var(--glass-bg);
             -webkit-backdrop-filter: var(--glass-blur);
             backdrop-filter: var(--glass-blur);
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
             transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
         }
 
         .statement:hover {
             border-color: rgba(245, 241, 232, 0.25);
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
         .statement p:last-child {
             margin-bottom: 0;
         }
 
-        /* 右侧标签列表容器 */
+        /* 閿熸彮璇ф嫹閿熻鈺嬫嫹鏂滈敓鏂ゆ嫹閿熸枻鎷烽�?*/
         .fact-list {
             display: grid;
             gap: 12px;
         }
 
-        /* 单个标签卡片：显示学校、专业等信息
-         * position: relative — 为 ::after 伪元素和 .timeline-cursor-lens 提供定位基准
-         * overflow: hidden — 裁切镜头效果，防止溢出到卡片外
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷风閿熸枻鎷风墖閿熸枻鎷烽敓鏂ゆ嫹绀哄鏍￠敓鏂ゆ嫹涓撲笟閿熸枻鎷烽敓鏂ゆ嫹�?
+         * position: relative ????::after 浼厓閿熸埅鐚存�?.timeline-cursor-lens 閿熺粨渚涢敓鏂ゆ嫹浣嶉敓鏂ゆ嫹鍑?
+         * overflow: hidden ??閿熸枻鎷烽敓鍙拝鎷峰ご鏁堥敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹姝㈤敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熺�??
          */
         .fact {
             position: relative;
@@ -711,8 +740,8 @@
         }
 
         .fact:hover {
-            border-color: rgba(245, 241, 232, 0.25);
-            box-shadow: var(--shadow);
+              border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
         .fact span {
@@ -725,7 +754,7 @@
             text-transform: uppercase;
         }
 
-        /* ---- 当前状态和项目卡片网格 ---- */
+        /* ---- 閿熸枻鎷峰墠鐘舵€侀敓鏂ゆ嫹閿熸枻鎷风洰閿熸枻鎷风墖閿熸枻鎷烽敓鏂ゆ�?---- */
         .status-grid,
         .project-grid {
             display: grid;
@@ -737,7 +766,7 @@
             align-items: stretch;
         }
 
-        /* 状态卡片和项目卡片的通用样式：边框圆角 + 毛玻璃背景 */
+        /* 鐘舵€侀敓鏂ゆ嫹鐗囬敓鏂ゆ嫹閿熸枻鎷风洰閿熸枻鎷风墖閿熸枻鎷烽€氶敓鏂ゆ嫹閿熸枻鎷峰紡閿熸枻鎷烽敓绔尅鎷峰�??+ 姣涢敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�??*/
         .status-card,
         .project-card {
             position: relative;
@@ -750,7 +779,7 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
         }
 
-        /* 左侧大状态卡片：显示当前专注方向，带渐变光晕 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹鐘舵€侀敓鏂ゆ嫹鐗囬敓鏂ゆ嫹閿熸枻鎷风ず閿熸枻鎷峰墠涓撴敞閿熸枻鎷烽敓娲ワ紝杈炬嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓?*/
         .status-card {
             min-height: 340px;
             padding: clamp(24px, 4vw, 46px);
@@ -761,10 +790,10 @@
 
         .status-card:hover {
             border-color: rgba(245, 241, 232, 0.25);
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
-        /* 卡片左上角的彩色渐变光晕效果 */
+        /* 閿熸枻鎷风墖閿熸枻鎷烽敓杈冭鐨勮鎷疯壊閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鍙嶆嫹�?*/
         .status-card::before,
         .project-card::before {
             content: "";
@@ -775,7 +804,7 @@
             pointer-events: none;
         }
 
-        /* 项目卡片图片填充 */
+        /* 閿熸枻鎷风洰閿熸枻鎷风墖鍥剧墖閿熸枻鎷烽�?*/
         .project-img {
             position: relative;
             inset: auto;
@@ -790,6 +819,22 @@
 
         .project-card:hover .project-img {
             transform: scale(1.05);
+        }
+
+        /* 閿熸枻鎷风洰閿熸枻鎷风墖鍥剧墖閿熸枻鎷烽敓鏂ゆ嫹閿熸帴甯嫹閿熸枻鎷烽敓??*/
+        .project-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.85) 100%);
+            z-index: 2;
+            pointer-events: none;
+            transition: opacity 520ms ease;
+            opacity: 0;
+        }
+
+        .project-card.dim::after {
+            opacity: 1;
         }
 
         .status-card > *,
@@ -811,7 +856,7 @@
             color: var(--muted);
         }
 
-        /* 右侧小信息卡片网格：学校、专业等 */
+        /* 閿熸彮璇ф嫹灏忛敓鏂ゆ嫹鎭敓鏂ゆ嫹鐗囬敓鏂ゆ嫹閿熸枻鎷峰鏍￠敓鏂ゆ嫹涓撲笟閿熸枻鎷?*/
         .status-mini {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -824,7 +869,7 @@
             align-content: space-between;
         }
 
-        /* 项目卡片：四列两行网格布局 */
+        /* 閿熸枻鎷风洰閿熸枻鎷风墖閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熶粖甯冩拝鎷?*/
         .project-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -832,7 +877,7 @@
             perspective: 1000px;
         }
 
-        /* 单个项目卡片：悬停时上浮 + 边框变亮 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷风洰閿熸枻鎷风墖閿熸枻鎷烽敓鏂ゆ嫹鍋滄椂閿熻緝闈╂�?+ 閿熺鍖℃嫹閿熸枻鎷烽敓?*/
         .project-card {
             min-height: 160px;
             padding: 0;
@@ -860,7 +905,7 @@
             overflow: hidden;
         }
 
-        /* 每张卡片叠加层级：左边最高，依次递减，形成层叠效果 */
+        /* 姣忛敓鑴氬尅鎷风墖閿熸枻鎷烽敓鎺ュ眰绾ч敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熺锝忔嫹閿熸枻鎷烽敓杞块€掔》鎷烽敓鏂ゆ嫹閿熻娇鎴愯鎷烽敓�??*/
         .project-card:nth-child(1) { z-index: 4; }
         .project-card:nth-child(2) { z-index: 3; }
         .project-card:nth-child(3) { z-index: 2; }
@@ -870,7 +915,7 @@
         .project-card:nth-child(7) { z-index: 2; }
         .project-card:nth-child(8) { z-index: 1; }
 
-        /* 叠加层级：第一行从左到右递减，第二行同理 */
+        /* 閿熸枻鎷烽敓鎺ュ眰绾ч敓鏂ゆ嫹閿熸枻鎷蜂竴閿熷彨杈炬嫹閿熸枻鎷烽敓鎻€掔》鎷烽敓鏂ゆ嫹閿熻妭璁规嫹閿熸枻鎷峰悓閿熸枻�?*/
 
         .project-card::before {
             z-index: 0;
@@ -880,18 +925,18 @@
                 radial-gradient(ellipse at 20% 20%, rgba(98, 200, 157, 0.08), transparent 60%);
         }
 
-        /* 项目卡片默认状态3D透视旋转，向画面内倾斜 */
+        /* 閿熸枻鎷风洰閿熸枻鎷风墖榛橀敓鏂ゆ嫹�??D閫忛敓鏂ゆ嫹閿熸枻鎷疯浆閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷锋枩 */
         .project-card.reveal.is-visible {
             transform: translateY(0) rotateY(-12deg);
             transform-origin: center center;
         }
 
-        /* 第二行卡片（第5~8张）：旋转方向反转 */
+        /* 閿熻妭璁规嫹閿熷彨鍖℃嫹鐗囬敓鏂ゆ嫹??~8閿熻剼锝忔嫹閿熸枻鎷烽敓鏂ゆ嫹杞敓鏂ゆ嫹閿熸枻�??*/
         .project-card:nth-child(n+5).reveal.is-visible {
             transform: translateY(0) rotateY(12deg);
         }
 
-        /* 项目卡片悬停时辉光效果 + 回正 + 置顶 */
+        /* 閿熸枻鎷风洰閿熸枻鎷风墖閿熸枻鎷峰仠鏃堕敓鐨嗙櫢鎷锋�??+ 閿熸枻鎷烽敓鏂ゆ�?+ 閿熺煫璁规嫹 */
         .project-card:hover {
             z-index: 10;
             transform: translateY(-10px) rotateY(0deg) scale(1.04);
@@ -910,7 +955,7 @@
                 28px 0 110px rgba(0, 0, 0, 0.42);
         }
 
-        /* 项目卡片的彩色小标签（如 "活动组织"） */
+        /* 閿熸枻鎷风洰閿熸枻鎷风墖閿熶茎璇ф嫹鑹插皬閿熸枻鎷风閿熸枻鎷烽敓鏂ゆ�?"閿熺瓔鍔ㄩ敓鏂ゆ嫹缁???*/
         .project-card .tag {
             margin-top: auto;
             width: fit-content;
@@ -945,14 +990,14 @@
             overflow-wrap: anywhere;
         }
 
-        /* ---- 经历时间线 ---- */
-        /* 纵向排列的时间线条目 */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹鏃堕敓鏂ゆ�??---- */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鍙鎷锋椂閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷风洰 */
         .timeline {
             display: grid;
             gap: 14px;
         }
 
-        /* 单个时间线条目：左边日期+角色，右边详情 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹鏃堕敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹鐩敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽�?閿熸枻鎷疯壊閿熸枻鎷烽敓鎻唻鎷烽敓鏂ゆ�??*/
         .timeline-item {
             padding: 24px;
             display: grid;
@@ -960,18 +1005,16 @@
             gap: 28px;
             position: relative;
             overflow: hidden;
-            border: 1px solid var(--line);
+            border: none;
             border-radius: var(--radius);
-            background:
-                linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.035)),
-                rgba(20, 22, 27, 0.46);
-            -webkit-backdrop-filter: blur(28px) saturate(1.45);
-            backdrop-filter: blur(28px) saturate(1.45);
+            background: rgba(18, 18, 24, 0.45);
+            -webkit-backdrop-filter: var(--glass-blur-nav);
+            backdrop-filter: var(--glass-blur-nav);
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.18),
                 inset 0 -1px 0 rgba(255, 255, 255, 0.06),
                 0 18px 54px rgba(0, 0, 0, 0.24);
-            transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+            transition: transform 300ms ease, box-shadow 300ms ease;
         }
 
         .timeline-item::before {
@@ -990,23 +1033,22 @@
             z-index: 2;
         }
 
-        /* 鼠标悬停时上浮效果 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熼叺锛唻鎷风粏閿熷�??*/
         .timeline-item:hover {
-            border-color: rgba(245, 241, 232, 0.25);
             box-shadow:
                 inset 0 1px 0 rgba(255, 255, 255, 0.22),
                 inset 0 -1px 0 rgba(255, 255, 255, 0.08),
-                var(--shadow);
+                0 10px 30px rgba(0,0,0,0.25);
         }
 
-        /* 日期文字样式 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷峰紡 */
         .date {
             color: var(--muted);
             font-size: 0.88rem;
             font-weight: 720;
         }
 
-        /* 角色标签：绿色文字，如 "成员"、"创始人" */
+        /* 閿熸枻鎷疯壊閿熸枻鎷风閿熸枻鎷烽敓鏂ゆ嫹鑹查敓鏂ゆ嫹閿熻锝忔�??"閿熸枻鎷峰憳"??閿熸枻鎷峰?? */
         .role {
             margin-bottom: 10px;
             color: var(--green);
@@ -1020,32 +1062,41 @@
             color: var(--muted);
         }
 
-        /* ---- 技能网格 ---- */
-        /* 7列等宽网格，展示各项技能 */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻�??---- */
+        /* 7閿熷彨绛夊尅鎷烽敓鏂ゆ嫹閿熸枻鎷峰睍绀洪敓鏂ゆ嫹閿熺瓔鎶€??*/
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(7, minmax(92px, 1fr));
             gap: 10px;
         }
 
-        /* 单个技能方块：底部有渐变色填充，高度代表技能熟练度 */
-        /* --level 变量控制填充比例，如 90% 就填充 90% 的高度 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏉板嚖鎷烽敓浠嬶細閿熼樁璇ф嫹閿熷彨鏂ゆ嫹閿熸枻鎷疯壊閿熸枻鎷锋磳顒婃嫹鍙ㄥ嵈閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹 */
+        /* --level 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷?90% 閿熸枻鎷烽敓鏂ゆ�??90% 閿熶茎闈╂嫹??*/
         .skill {
             min-height: 136px;
-            padding: 14px;
-            display: grid;
-            align-content: end;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             border: 1px solid var(--line);
             border-radius: var(--radius);
             background: var(--glass-bg);
             -webkit-backdrop-filter: var(--glass-blur);
             backdrop-filter: var(--glass-blur);
         }
+        .skill:hover { z-index: 3; }
+        .skill-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            padding: 14px;
+            display: grid;
+            align-content: end;
+            overflow: hidden;
+            border-radius: inherit;
+        }
 
-        /* 技能方块的背景填充层：从底部向上生长的动画 */
-        .skill::before {
+        /* 閿熸枻鎷烽敓鏉板嚖鎷烽敓鏂ゆ嫹璋嬮敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹鎮栫尨鎷锋嫢鎾為敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹浜╅敓鏂ゆ嫹�?*/
+        .skill-content::before {
             content: "";
             position: absolute;
             left: 0;
@@ -1058,7 +1109,7 @@
             transition: transform 950ms cubic-bezier(.2, .8, .2, 1);
         }
 
-        .skill.is-visible::before {
+        .skill-content.is-visible::before {
             transform: scaleY(1);
         }
 
@@ -1072,16 +1123,44 @@
             color: var(--muted);
             font-size: 0.8rem;
         }
-
-        /* ---- 摄影作品展示网格 ---- */
-        /* 4列布局，每个作品是一个带彩色渐变的卡片 */
+        /* ---- Skill card icon popup ---- */
+        .skill-icons {
+            position: fixed;
+            left: -9999px;
+            top: -9999px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            pointer-events: none;
+            z-index: 2147483647;
+            transform: translate(0, 0);
+            transition: transform 520ms cubic-bezier(0.22, 1.0, 0.36, 1.0);
+        }
+        .skill-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(0);
+            transform-origin: center bottom;
+            transition:
+                opacity 320ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 480ms cubic-bezier(0.22, 1.0, 0.36, 1.0);
+        }
+        .skill-icon.pop-in {
+            opacity: 1;
+            transform: scale(1);
+        }
+        /* ---- 閿熸枻鎷峰奖閿熸枻鎷峰搧灞曠ず閿熸枻鎷烽敓鏂ゆ嫹 ---- */
+        /* 4閿熷彨璇ф嫹閿熻锝忔嫹姣忛敓鏂ゆ嫹閿熸枻鎷峰搧閿熸枻鎷蜂竴閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷疯壊閿熸枻鎷烽敓鏂ゆ嫹鐩�??*/
         .work-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 14px;
         }
 
-        /* 单个作品卡片：图片背景 + 暗色遮罩 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷峰搧閿熸枻鎷风墖閿熸枻鎷峰浘鐗囬敓鏂ゆ�??+ 閿熸枻鎷疯壊閿熸枻鎷烽敓鏂ゆ�?*/
         .work {
             min-height: 330px;
             padding: 18px;
@@ -1099,7 +1178,7 @@
             transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
         }
 
-        /* 作品卡片的暗色遮罩层，覆盖在图片上方 */
+        /* 閿熸枻鎷峰搧閿熸枻鎷风墖閿熶茎甯嫹鑹查敓鏂ゆ嫹閿熻灞傦紝閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷峰浘鐗囬敓杈冨嚖鎷?*/
         .work::before {
             content: "";
             position: absolute;
@@ -1113,7 +1192,7 @@
             transition: transform 520ms ease;
         }
 
-        /* 作品卡片图片填充 */
+        /* 閿熸枻鎷峰搧閿熸枻鎷风墖鍥剧墖閿熸枻鎷烽�?*/
         .work-img {
             position: absolute;
             inset: 0;
@@ -1133,15 +1212,14 @@
             content: "";
             position: absolute;
             inset: 0;
-            z-index: -1;
-            background-image:
-                linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-                linear-gradient(180deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
-            background-size: 34px 34px;
-            mix-blend-mode: overlay;
-            opacity: 0.42;
+            z-index: 10;
+            pointer-events: none;
         }
 
+
+        .work > * {
+            pointer-events: none;
+        }
         .work > div {
             text-shadow: 0 2px 12px rgba(0, 0, 0, 0.68), 0 1px 2px rgba(0, 0, 0, 0.64);
         }
@@ -1151,32 +1229,32 @@
             filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.34));
         }
 
-        /* 作品卡片悬停时上浮 + 显示阴影 */
+        /* 閿熸枻鎷峰搧閿熸枻鎷风墖閿熸枻鎷峰仠鏃堕敓鏂ゆ嫹??+ 閿熸枻鎷风ず閿熸枻鎷峰奖 */
         .work:hover {
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
         .work:hover::before {
             transform: scale(1);
         }
 
-        /* 作品卡片默认状态逆时针旋转10度，增加高级感 */
+        /* 閿熸枻鎷峰搧閿熸枻鎷风墖榛橀敓鏂ゆ嫹鐘舵€侀敓鏂ゆ嫹鏃堕敓鏂ゆ嫹閿熸枻鎷??0閿熼ズ锝忔嫹閿熸枻鎷烽敓鎺ラ珮纭锋嫹??*/
         .work.reveal.is-visible {
-            transform: translateY(0) rotate(-10deg);
+            transform: translateY(0);
             transform-origin: center center;
         }
 
-        /* 作品卡片悬停时辉光效果 + 回正 + 置顶 */
+        /* 閿熸枻鎷峰搧閿熸枻鎷风墖閿熸枻鎷峰仠鏃堕敓鐨嗙櫢鎷锋�??+ 閿熸枻鎷烽敓鏂ゆ�?+ 閿熺煫璁规嫹 */
         .work:hover {
             z-index: 2;
-            transform: translateY(-4px) rotate(0deg);
+            transform: translateY(-4px);
             box-shadow:
                 0 0 12px rgba(120, 148, 255, 0.35),
                 0 0 28px rgba(120, 148, 255, 0.28),
                 0 0 50px rgba(120, 148, 255, 0.20),
                 0 0 80px rgba(120, 148, 255, 0.12),
                 0 0 120px rgba(120, 148, 255, 0.06),
-                var(--shadow);
+                0 10px 30px rgba(0,0,0,0.25);
         }
 
         .work time,
@@ -1190,16 +1268,75 @@
             color: rgba(255, 253, 248, 0.76);
         }
 
-        /* ---- 他人评价区域 ---- */
-        /* 两列并排的引用卡片 */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�?---- */
+        /* 閿熸枻鎷烽敓鍙鎷烽敓鑴氱鎷烽敓鏂ゆ嫹閿熺煫鍖℃�??*/
         .quote-strip {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            position: relative;
+            padding-bottom: 40px;
+        }
+        .quote-strip .quote-pair {
+            display: flex;
             gap: 14px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            transition: transform 380ms cubic-bezier(0.34, 1.56, 0.64, 1), opacity 320ms ease;
+        }
+        .quote-strip .quote-pair.pair-active {
+            transform: scale(1) !important;
+            opacity: 1 !important;
+        }
+        .quote-strip .quote-pair.pair-active .quote {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+        .quote-strip .quote-pair.pair-hidden-left {
+            transform: scale(0.88) translateX(-40px) !important;
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+        .quote-strip .quote-pair.pair-hidden-right {
+            transform: scale(0.88) translateX(40px) !important;
+            opacity: 0 !important;
+            pointer-events: none;
+        }
+        .quote-strip .quote {
+            flex: 1 1 0;
+            min-width: 0;
+        }
+        .quote-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 5;
+        }
+        .quote-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(245, 241, 232, 0.2);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background 300ms ease, transform 300ms ease;
+        }
+        .quote-dot.dot-active {
+            background: rgba(245, 241, 232, 0.85);
+            transform: scale(1.3);
+        }
+        .quote-dot:hover {
+            background: rgba(245, 241, 232, 0.5);
         }
 
-        /* 单条评价卡片：毛玻璃背景 + 阴影 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓妗斿尅鎷风墖閿熸枻鎷锋瘺閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�?+ 閿熸枻鎷峰奖 */
         .quote {
+            position: relative;
+            overflow: hidden;
             padding: clamp(24px, 4vw, 38px);
             border: 1px solid var(--line);
             border-radius: var(--radius);
@@ -1212,7 +1349,7 @@
 
         .quote:hover {
             border-color: rgba(245, 241, 232, 0.25);
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
         .quote p {
@@ -1231,8 +1368,8 @@
             font-weight: 520;
         }
 
-        /* ---- 联系方式区域 ---- */
-        /* 左边是超大 "Hello world." 标题，右边是链接列表 */
+        /* ---- 閿熸枻鎷风郴閿熸枻鎷峰紡閿熸枻鎷烽敓鏂ゆ�?---- */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹娴呴敓??"Hello world." 閿熸枻鎷烽敓瑙ｏ紝閿熸彮鎲嬫嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鍙唻鎷?*/
         .contact-band {
             display: grid;
             grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.38fr);
@@ -1240,7 +1377,7 @@
             align-items: end;
         }
 
-        /* "Hello world." 超大标题样式 */
+        /* "Hello world." 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熺�?*/
         .contact-title {
             margin: 0;
             font-size: clamp(3rem, 9vw, 8.4rem);
@@ -1253,13 +1390,13 @@
             animation: gradientFlow 6s ease infinite;
         }
 
-        /* 联系方式链接列表 */
+        /* 閿熸枻鎷风郴閿熸枻鎷峰紡閿熸枻鎷烽敓鏂ゆ嫹閿熷彨鎲嬫�?*/
         .contact-list {
             display: grid;
             gap: 10px;
         }
 
-        /* 单个联系链接：悬停时向右缩进 + 文字变亮 */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷风郴閿熸枻鎷烽敓鎺ワ綇鎷烽敓鏂ゆ嫹鍋滄椂閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�?+ 閿熸枻鎷烽敓琛楁唻鎷烽敓鏂ゆ�?*/
         .contact-list a {
             padding: 16px 0;
             display: flex;
@@ -1275,8 +1412,8 @@
             color: var(--ink);
         }
 
-        /* ---- 页脚 ---- */
-        /* 版权信息 + 备案号，最底部的横条 */
+        /* ---- 椤甸敓鏂ゆ嫹 ---- */
+        /* 閿熸枻鎷锋潈閿熸枻鎷锋伅 + 閿熸枻鎷烽敓鏂ゆ嫹閿熻剼锝忔嫹閿熸枻鎷锋挒閿熸枻鎷锋毊閿??*/
         .footer {
             padding: 28px 0;
             color: var(--muted);
@@ -1335,9 +1472,9 @@
             text-underline-offset: 4px;
         }
 
-        /* ---- 滚动渐显动画 ---- */
-        /* 元素初始状态：透明 + 向下偏移 26px */
-        /* 当滚动到可视区域时，添加 .is-visible 类使其渐显归位 */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鐨嗚鎷烽敓鏂ゆ嫹 ---- */
+        /* 鍏冮敓鎴鎷峰鐘舵€侀敓鏂ゆ嫹閫忛敓鏂ゆ嫹 + 閿熸枻鎷烽敓鏂ゆ嫹鍋忛敓鏂ゆ�?26px */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹鏃堕敓鏂ゆ嫹閿熸枻鎷烽敓?.is-visible 閿熸枻鎷蜂娇閿熸垝娓愰敓鐨嗙櫢鎷??*/
         .reveal {
             opacity: 0;
             transform: translateY(26px);
@@ -1349,13 +1486,13 @@
             transform: translateY(0);
         }
 
-        /* ---- 页面加载动画 ---- */
+        /* ---- 椤甸敓鏂ゆ嫹閿熸枻鎷峰洘閿熸枻鎷烽敓?---- */
         @keyframes pageIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        /* ---- 滚动进度条 ---- */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹??---- */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -1367,7 +1504,7 @@
             pointer-events: none;
         }
 
-        /* ---- 自定义光标 ---- */
+        /* ---- 閿熺殕璁规嫹閿熸枻鎷烽敓??---- */
         .cursor-dot {
             width: 14px;
             height: 14px;
@@ -1422,7 +1559,7 @@
             border-color: rgba(245, 241, 232, 0.15);
         }
 
-        /* ---- Hero 标题逐字动画 ---- */
+        /* ---- Hero 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓琛楄鎷烽敓鏂ゆ嫹 ---- */
         .hero-char {
             display: inline-block;
             opacity: 0;
@@ -1434,14 +1571,14 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ---- 渐变流光动画 ---- */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓瑙ｅ姩閿熸枻鎷?---- */
         @keyframes gradientFlow {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
 
 
-        /* ---- 大白圈：跟随鼠标的反色圆形光标，仅在卡片内裁切显示 ---- */
+        /* ---- 閿熸枻鎷烽敓楗猴讣鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷峰閿熺即顐戣鎷峰杺閿熺枼锛岄敓鏂ゆ嫹閿熻妭鍖℃嫹鐗囬敓鑺傝鎷烽敓鏂ゆ嫹閿熸枻鎷??---- */
         .timeline-cursor-lens {
             position: absolute;
             left: 50%;
@@ -1465,7 +1602,7 @@
             transform: translate(-50%, -50%) scale(1) translateZ(26px);
         }
 
-        /* 大白圈激活时隐藏默认自定义光标 */
+        /* 閿熸枻鎷烽敓楗猴讣鎷烽敓鏂ゆ嫹閿熺粸鎲嬫嫹閿熸枻鎷烽敓渚ヮ剨鎷烽敓鏂ゆ嫹杩滈敓鏂ゆ嫹閿熸枻鎷??*/
         body.lens-active .cursor-dot,
         body.lens-active .cursor-ring,
         body.lens-active .cursor-expand {
@@ -1473,7 +1610,7 @@
             transform: scale(0) !important;
         }
 
-        /* ---- 时间线卡片弹出动画 ---- */
+        /* ---- 鏃堕敓鏂ゆ嫹閿熺鍖℃嫹鐗囬敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�??---- */
         .timeline .timeline-item.reveal,
         #education .timeline-item.reveal {
             opacity: 0;
@@ -1489,7 +1626,7 @@
             transform: translateY(0) scale(1);
         }
 
-        /* ---- 当前状态卡片弹出动画 ---- */
+        /* ---- 閿熸枻鎷峰墠鐘舵€侀敓鏂ゆ嫹鐗囬敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ�??---- */
         #now .status-card.reveal,
         #now .fact.reveal {
             opacity: 0;
@@ -1516,7 +1653,7 @@
             transform-style: preserve-3d;
         }
 
-        /* ---- 按钮涟漪效果 ---- */
+        /* ---- 閿熸枻鎷烽挳閿熸枻鎷烽敓鏂ゆ嫹鏁堥敓鏂ゆ�?---- */
         .button {
             position: relative;
             overflow: hidden;
@@ -1535,7 +1672,7 @@
             to { transform: scale(4); opacity: 0; }
         }
 
-        /* ---- 板块粒子漂移动画 ---- */
+        /* ---- 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鐙☆垽鎷疯传閿熸枻鎷烽�?---- */
         @keyframes driftWarm {
             0% { background-position: 0 0, 0 0; }
             100% { background-position: -35px 25px, 0 0; }
@@ -1565,12 +1702,11 @@
             100% { background-position: -20px 30px, 0 0; }
         }
 
-        /* ---- 子页面系统 ---- */
+        /* ---- 閿熸枻鎷烽〉閿熸枻鎷风�??---- */
         .sub-page {
             position: fixed;
             inset: 0;
             z-index: 100;
-            background: var(--bg);
             overflow-y: auto;
             opacity: 0;
             visibility: hidden;
@@ -1719,7 +1855,7 @@
 
         .sub-role-card:hover {
             border-color: rgba(245, 241, 232, 0.25);
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
         .sub-role-card h3 {
@@ -1769,7 +1905,7 @@
             margin-top: 48px;
         }
 
-        /* ACC 子页面主题：红色/暖色调 */
+        /* ACC 閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹閿熻В锛氶敓鏂ゆ嫹�?鏆栬�??*/
         .sub-hero--acc {
             background:
                 linear-gradient(180deg, #090a0d, transparent 120px),
@@ -1809,7 +1945,7 @@
             color: var(--red);
         }
 
-        /* F1 子页面主题：绿色/科技感 */
+        /* F1 閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹閿熻В锛氶敓鏂ゆ嫹�?閿熺嫛纭锋嫹??*/
         .sub-hero--f1 {
             background:
                 linear-gradient(180deg, #090a0d, transparent 120px),
@@ -1818,7 +1954,6 @@
 
         .sub-hero--f1::before {
             background:
-                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(245, 241, 232, 0.03) 20px, rgba(245, 241, 232, 0.03) 21px),
                 radial-gradient(ellipse at 70% 40%, rgba(98, 200, 157, 0.22) 0%, transparent 60%);
         }
 
@@ -1847,7 +1982,7 @@
             color: var(--green);
         }
 
-        /* AI 子页面主题：蓝色/科技感 */
+        /* AI 閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹閿熻В锛氶敓鏂ゆ嫹�?閿熺嫛纭锋嫹??*/
         .sub-hero--ai {
             background:
                 linear-gradient(180deg, #090a0d, transparent 120px),
@@ -1880,7 +2015,7 @@
         }
         #page-ai .sub-stat-num { color: var(--blue); }
 
-        /* Bilibili 子页面主题：B站粉蓝 */
+        /* Bilibili 閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹閿熻В锛欱绔欓敓鏂ゆ嫹??*/
         .sub-hero--bilibili {
             background:
                 linear-gradient(180deg, #090a0d, transparent 120px),
@@ -1888,7 +2023,6 @@
         }
         .sub-hero--bilibili::before {
             background:
-                repeating-linear-gradient(-45deg, transparent, transparent 18px, rgba(0, 161, 214, 0.04) 18px, rgba(0, 161, 214, 0.04) 19px),
                 radial-gradient(ellipse at 40% 60%, rgba(251, 114, 157, 0.18) 0%, transparent 55%);
         }
         .sub-content--bilibili {
@@ -1912,7 +2046,7 @@
         }
         #page-bilibili .sub-stat-num { color: #fb7299; }
 
-        /* BJI Phone 子页面主题：金色/高端感 */
+        /* BJI Phone 閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹閿熻В锛氶敓鏂ゆ嫹�?閿熺璁规嫹??*/
         .sub-hero--bji {
             background:
                 linear-gradient(180deg, #090a0d, transparent 120px),
@@ -1945,7 +2079,7 @@
         }
         #page-bji .sub-stat-num { color: var(--gold); }
 
-        /* 闲鱼 子页面主题：橙色/活力感 */
+        /* 閿熸枻鎷烽敓鏂ゆ�?閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹閿熻В锛氶敓鏂ゆ嫹�?閿熸枻鎷烽敓鏂ゆ�??*/
         .sub-hero--xianyu {
             background:
                 linear-gradient(180deg, #090a0d, transparent 120px),
@@ -1953,7 +2087,6 @@
         }
         .sub-hero--xianyu::before {
             background:
-                repeating-linear-gradient(60deg, transparent, transparent 24px, rgba(255, 140, 0, 0.035) 24px, rgba(255, 140, 0, 0.035) 25px),
                 radial-gradient(ellipse at 70% 50%, rgba(255, 140, 0, 0.2) 0%, transparent 55%);
         }
         .sub-content--xianyu {
@@ -1977,7 +2110,7 @@
         }
         #page-xianyu .sub-stat-num { color: #ff8c00; }
 
-        /* 定格动画 子页面主题：暖红/胶片感 */
+        /* 閿熸枻鎷烽敓浠婂姩浼欐嫹 閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹閿熻В锛氭殩閿熸枻�?閿熸枻鎷风墖??*/
         .sub-hero--stopmotion {
             background:
                 linear-gradient(180deg, #090a0d, transparent 120px),
@@ -1985,7 +2118,6 @@
         }
         .sub-hero--stopmotion::before {
             background:
-                repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(245, 241, 232, 0.025) 40px, rgba(245, 241, 232, 0.025) 41px),
                 radial-gradient(ellipse at 40% 60%, rgba(255, 115, 93, 0.2) 0%, transparent 55%);
         }
         .sub-content--stopmotion {
@@ -2009,7 +2141,7 @@
         }
         #page-stop-motion .sub-stat-num { color: var(--red); }
 
-        /* 游戏本 子页面主题：紫色/游戏感 */
+        /* 閿熸枻鎷锋垙??閿熸枻鎷烽〉閿熸枻鎷烽敓鏂ゆ嫹閿熻В锛氶敓鏂ゆ嫹�?閿熸枻鎷锋垙??*/
         .sub-hero--gamebook {
             background:
                 linear-gradient(180deg, #090a0d, transparent 120px),
@@ -2070,13 +2202,13 @@
             }
         }
 
-        /* ---- 手机端隐藏自定义光标 ---- */
+        /* ---- 閿熻浼欐嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鐨嗚鎷烽敓鏂ゆ嫹閿熸枻鎷?---- */
         @media (pointer: coarse) {
             .cursor-dot, .cursor-ring { display: none !important; }
             body, a, button { cursor: auto !important; }
             .section::before, .section::after { animation: none !important; }
         }
-        /* ---- 移动端禁用 backdrop-filter 以节省 GPU ---- */
+        /* ---- 閿熺嫛璁规嫹閿熷壙鏂ゆ嫹??backdrop-filter 閿熺殕鏂ゆ嫹??GPU ---- */
         @media (pointer: coarse) {
             .nav-shell,
             .statement,
@@ -2092,7 +2224,7 @@
             }
         }
 
-        /* ---- 无障碍：如果用户系统设置了"减少动画"，则关闭所有动画和过渡 ---- */
+        /* ---- 閿熸枻鎷烽敓杈冨府鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹娌￠敓杈冧綆绛规嫹閿熸枻鎷烽�??閿熸枻鎷烽敓鍔鎷烽敓鏂ゆ�?閿熸枻鎷烽敓鏂ゆ嫹涔囬敓鏂ゆ嫹閿熸枻鎷峰嵏閿熸枻鎷烽敓鏂ゆ嫹鍑搁敓鏂ゆ嫹�?---- */
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -2103,8 +2235,8 @@
             }
         }
 
-        /* ---- 响应式布局：平板尺寸（≤960px）---- */
-        /* 多列布局变为单列，网格调整列数 */
+        /* ---- 閿熸枻鎷峰簲寮忛敓鏂ゆ嫹閿熻锝忔嫹骞抽敓鏂ゆ嫹鍙界�??60px??--- */
+        /* 閿熸枻鎷烽敓鍙鎷烽敓琛楁唻鎷蜂负閿熸枻鎷烽敓鍙綇鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓??*/
         @media (max-width: 960px) {
             .hero-grid,
             .about-layout,
@@ -2134,9 +2266,9 @@
 
         }
 
-        /* ---- 响应式布局：手机尺寸（≤720px）---- */
-        /* 显示汉堡菜单按钮，导航变为下拉面板 */
-        /* 按钮全宽，卡片内边距缩小 */
+        /* ---- 閿熸枻鎷峰簲寮忛敓鏂ゆ嫹閿熻锝忔嫹閿熻浼欐嫹閿熺瀵革�??20px??--- */
+        /* 閿熸枻鎷风ず閿熸枻鎷烽敓鏂ゆ嫹閿熷壙纰夋嫹閿熸枻鎷烽挳閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹涓洪敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹??*/
+        /* 閿熸枻鎷烽挳鍏ㄩ敓鏂ゆ嫹閿熸枻鎷烽敓鐙☆剨鎷疯瘨鍛旈敓鏂ゆ嫹閿熷�?*/
         @media (max-width: 720px) {
             .site-header {
                 top: 10px;
@@ -2170,7 +2302,7 @@
                 border: 1px solid var(--line);
                 border-radius: 20px;
                 background: rgba(14, 16, 21, 0.96);
-                box-shadow: var(--shadow);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.25);
                 opacity: 0;
                 transform: translateY(-12px);
                 pointer-events: none;
@@ -2275,8 +2407,8 @@
             }
         }
 
-        /* ---- 响应式布局：小屏手机（≤420px）---- */
-        /* 技能网格变为单列，卡片进一步缩小 */
+        /* ---- 閿熸枻鎷峰簲寮忛敓鏂ゆ嫹閿熻锝忔嫹灏忛敓鏂ゆ嫹閿熻浼欐嫹閿熸枻鎷??20px??--- */
+        /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鏂ゆ嫹閿熻娇顏庢嫹閿熸枻鎷锋牎閿熸枻鎷烽敓鐙☆剨鎷烽敓鎻紮鎷烽敓鏂ゆ嫹閿??*/
         @media (max-width: 420px) {
             .wrap {
                 width: min(100% - 24px, 1120px);
@@ -2303,3 +2435,138 @@
                 display: grid;
             }
         }
+
+
+
+
+/* ---- Photography card hover info (Android 16 squircle) ---- */
+.cam-info-card {
+    position: fixed;
+    bottom: 36px;
+    left: 16px;
+    z-index: 1000;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a1a;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    /* Android 16 super-rounded squircle */
+    border-radius: 28px;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.15),
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        0 16px 56px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+    transform: translateY(120%) scale(0.8);
+    opacity: 0;
+    transition: transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 320ms ease;
+}
+.cam-info-card.is-visible {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+.cam-info-card .cam-icon {
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 1em;
+}
+.cam-info-card .cam-spec {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.cam-info-card .cam-spec span {
+    opacity: 0.5;
+}
+
+
+/* ---- Loading Animation ---- */
+.loader-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.loader-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.loader-blocks {
+    display: flex;
+    gap: 6px;
+    align-items: center; /* 鐏炲懍鑵戠€靛綊缍堥懓灞肩瑝閺勵垰绨抽柈銊ヮ嚠姒?*/
+    height: 54px;
+    justify-content: center;
+}
+.loader-block {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    opacity: 0;
+    transform: translateY(-120vh);
+    /* 閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鎴掞細閿熼ズ纭锋嫹閿熸枻鎷烽敓鏂ゆ嫹閿熸垝锛屾挒閿熸枻鎷烽敓鏂ゆ嫹閿熸枻鎷烽敓鎴鎷烽敓鍔拝鎷锋 */
+    animation: blockDrop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.loader-block:nth-child(2)  { background: #eaeaea; animation-delay: 0.08s; }
+.loader-block:nth-child(3)  { background: #d5d5d5; animation-delay: 0.16s; }
+.loader-block:nth-child(4)  { background: #bfbfbf; animation-delay: 0.24s; }
+.loader-block:nth-child(5)  { background: #a8a8a8; animation-delay: 0.32s; }
+.loader-block:nth-child(6)  { background: #8f8f8f; animation-delay: 0.40s; }
+.loader-block:nth-child(7)  { background: #737373; animation-delay: 0.48s; }
+.loader-block:nth-child(8)  { background: #555555; animation-delay: 0.56s; }
+.loader-block:nth-child(9)  { background: #363636; animation-delay: 0.64s; }
+.loader-block:nth-child(10) { background: #181818; animation-delay: 0.72s; }
+
+@keyframes blockDrop {
+    0% {
+        opacity: 1;
+        transform: translateY(-120vh);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    72% {
+        transform: translateY(-32px);
+    }
+    82% {
+        transform: translateY(0);
+    }
+    90% {
+        transform: translateY(-10px);
+    }
+    96% {
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---- Loading Animation End ---- */
+
+/* ---- 移动端恢复默认光标 ---- */
+@media (pointer: coarse) {
+    body,
+    a, button, input, textarea, select,
+    .button, .nav-links a, .contact-list a,
+    .menu-toggle, .work-link, .brand {
+        cursor: auto !important;
+    }
+}
