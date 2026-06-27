@@ -1,0 +1,28 @@
+/* ---- 二级页面通用样式 ---- */
+/* 银河粒子背景画布定位与内容层级控制 */
+/* 此文件被 about.html、ai.html、project-details.html 共用 */
+
+/* 银河背景画布 — 固定全屏定位，置于内容下方（z-index: -1） */
+/* 由 project-galaxy.js 控制绘制，pointer-events: none 不阻挡交互 */
+#project-galaxy-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 主内容区域和项目段落 — 相对定位，层级高于背景画布 */
+main,
+.pj-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* 二级页面 Hero 区域和内容区域 — 确保内容在背景画布之上 */
+.sub-hero,
+.sub-content {
+  position: relative;
+  z-index: 1;
+}

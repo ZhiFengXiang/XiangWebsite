@@ -1,0 +1,488 @@
+/* ---- 项目详情页样式（Apple 编辑风格 v9） ---- */
+/* 用于 project-details.html，包含段落布局、图片网格、统计数据、奖项卡片等 */
+
+/* ── 页面背景 ── */
+body {
+  background: #090a0d;
+}
+
+/* ── 段落通用样式 ── */
+/* 每个段落垂直内边距 80px/40px，相邻段落间添加分隔线 */
+.pj-section {
+  padding: 80px 0 40px;
+}
+
+.pj-section + .pj-section {
+  border-top: 1px solid var(--line);
+}
+
+/* 段落内容容器 — 最大宽度 980px 居中 */
+.pj-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 80px 24px 120px;
+}
+
+/* ── 面包屑导航（已隐藏，改用固定返回按钮） ── */
+.pj-breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pj-breadcrumb:hover {
+  color: var(--ink);
+}
+
+/* ── 标题排版 ── */
+/* 小标签 — 大写字母 + 字间距 */
+.pj-kicker {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* 主标题 — 自适应字号，最大 3.2rem */
+.pj-title {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* 副标题 — 灰色调，最大宽度 720px */
+.pj-lead {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.12rem);
+  line-height: 1.7;
+  max-width: 720px;
+}
+
+/* ── 标签胶囊 ── */
+/* 技术标签/分类标签的圆角胶囊容器 */
+.pj-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+/* 单个标签 — 毛玻璃背景 + 圆角边框 */
+.pj-chips span {
+  display: inline-flex;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(20, 22, 27, 0.4);
+  color: var(--ink);
+  font-size: 0.8rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* ── 正文内容 ── */
+.pj-body {
+  margin-bottom: 40px;
+}
+
+/* 正文段落 — 1.85 行高，优化阅读体验 */
+.pj-body p {
+  margin: 0 0 20px;
+  font-size: clamp(1rem, 1.5vw, 1.08rem);
+  line-height: 1.85;
+  color: var(--ink);
+}
+
+.pj-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* 小节标题 */
+.pj-h3 {
+  margin: 32px 0 12px;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+/* ── 图片网格行 ── */
+/* 默认 2 列布局，--3 修饰类为 3 列 */
+.pj-img-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 28px 0;
+}
+
+/* 3 列图片网格 */
+.pj-img-row--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* 图片卡片 — 悬停时放大 1.15 倍 + 阴影，使用回弹缓动 */
+.pj-img-row figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  transition: transform 520ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 520ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform;
+}
+
+/* 悬停放大效果 — 整个卡片统一放大 1.15 倍 */
+.pj-img-row figure:hover {
+  transform: scale(1.15);
+  z-index: 2;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* 图片 — 16:10 比例，覆盖填充 */
+.pj-img-row img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+/* 图片说明文字 */
+.pj-img-row figcaption {
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* ── 统计数据网格 ── */
+/* 自适应列数，每列最小 180px */
+.pj-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 40px 0;
+}
+
+/* 单个统计卡片 — 毛玻璃背景 */
+.pj-stat {
+  padding: 24px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(20, 22, 27, 0.45);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+/* 统计数字 — 大字号粗体 */
+.pj-stat-num {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+/* 统计标签 — 灰色小字 */
+.pj-stat-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ── 外部链接按钮 ── */
+.pj-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 36px 0;
+}
+
+/* 链接按钮 — 实底背景 + 悬停上移 + 箭头右移 */
+.pj-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 280ms cubic-bezier(.25,.46,.45,.94),
+              box-shadow 280ms cubic-bezier(.25,.46,.45,.94),
+              background 280ms ease,
+              color 280ms ease;
+  cursor: pointer;
+  min-height: 44px;
+}
+
+/* 悬停 — 上移 2px + 阴影 */
+.pj-link-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* 按下 — 恢复原位 */
+.pj-link-btn:active {
+  transform: translateY(0);
+}
+
+/* 箭头图标 — 悬停时右移 3px */
+.pj-link-btn .pj-link-arrow {
+  display: inline-flex;
+  transition: transform 240ms ease;
+}
+
+.pj-link-btn:hover .pj-link-arrow {
+  transform: translateX(3px);
+}
+
+/* 链接 URL 文本 — 小字 + 半透明 */
+.pj-link-url {
+  font-size: 0.76rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+/* ── 图片说明 ── */
+.pj-caption {
+  margin: 20px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+/* ── 银河背景画布 ── */
+/* 固定全屏定位，置于内容下方 */
+main {
+  position: relative;
+}
+
+#galaxy-canvas {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 确保内容在画布之上 */
+.pj-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── 响应式 — 手机断点 720px ── */
+@media (max-width: 720px) {
+  .pj-section {
+    padding: 56px 0 28px;
+  }
+
+  .pj-img-row--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pj-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .pj-links {
+    flex-direction: column;
+  }
+
+  .pj-link-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---- 段落半圆滚动切换 ---- */
+/* Section 定位由 JS 内联样式控制（sub-page.js） */
+
+/* 自定义滚动条 — 暗色主题适配 */
+.pj-section::-webkit-scrollbar {
+  width: 6px;
+}
+.pj-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+.pj-section::-webkit-scrollbar-thumb {
+  background: rgba(245,241,232,0.2);
+  border-radius: 3px;
+}
+
+/* Firefox 滚动条样式 */
+@media (max-width: 720px) {
+  .pj-section {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(245,241,232,0.2) transparent;
+  }
+}
+
+/* ---- 固定返回按钮 ---- */
+/* 左上角固定的返回主站按钮，毛玻璃胶囊样式 */
+.pj-back-fixed {
+  position: fixed;
+  top: 20px;
+  left: 24px;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  text-decoration: none;
+  padding: 8px 16px 8px 10px;
+  border-radius: 999px;
+  background: rgba(20, 22, 27, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--line);
+  transition: color 0.2s, background 0.2s;
+  cursor: none !important;
+}
+.pj-back-fixed:hover {
+  color: var(--muted);
+  background: rgba(20, 22, 27, 0.6);
+  cursor: none !important;
+}
+
+/* 隐藏各 section 内的 breadcrumb（已由固定返回按钮替代） */
+.pj-breadcrumb {
+  display: none !important;
+}
+
+/* ---- 段落进度条 ---- */
+/* 左侧固定的垂直进度条，显示当前段落位置 */
+.pj-section-bar {
+  position: fixed;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9998;
+  width: 6px;
+  height: 140px;
+  border-radius: 999px;
+  background: rgba(20, 22, 27, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(245, 241, 232, 0.08);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* 进度条轨道容器 */
+.pj-section-bar-track {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+/* 进度条填充 — 五彩渐变 + 流动动画，高度由 JS 控制 */
+.pj-section-bar-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0%;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    #7894ff 0%,
+    #c084fc 25%,
+    #f472b6 50%,
+    #fb923c 75%,
+    #facc15 100%
+  );
+  background-size: 100% 300%;
+  animation: barShimmer 3s ease infinite;
+  transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 进度条渐变流动动画 */
+@keyframes barShimmer {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* ---- 奖项卡片网格 ---- */
+/* 2 列布局，展示获奖信息 */
+.pj-awards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 36px 0;
+}
+
+/* 单个奖项卡片 — 徽章 + 标题 + 颁发机构 */
+.pj-award-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 24px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(20, 22, 27, 0.45);
+  backdrop-filter: blur(18px) saturate(1.2);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+}
+
+/* 奖项徽章 — 金色渐变背景的圆角方块 */
+.pj-award-badge {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FDE68A 0%, #FFD700 50%, #DAA520 100%);
+  color: #1a1600;
+}
+
+/* 奖项标题 */
+.pj-award-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+/* 颁发机构 — 灰色小字 */
+.pj-award-org {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* 响应式 — 奖项卡片改为单列 */
+@media (max-width: 720px) {
+  .pj-awards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 强制覆盖 a 标签默认 pointer 光标（适配自定义光标系统） */
+a.pj-back-fixed,
+a.pj-back-fixed:link,
+a.pj-back-fixed:visited,
+a.pj-back-fixed:hover,
+a.pj-back-fixed:active {
+  cursor: none !important;
+}

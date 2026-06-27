@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>实验室2号 | Xiang</title>
+  <meta name="description" content="实验室2号 — Cubes 3D 交互立方体效果展示">
+  <link rel="icon" type="image/webp" href="../images/head-icon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/project-page.css">
+  <link rel="stylesheet" href="../css/sub-page.css">
+  <link rel="stylesheet" href="../css/cubes.css">
+  <link rel="manifest" href="../manifest.webmanifest">
+  <style>
+    /* ---- 实验室2号页面专属样式 ---- */
+    .lab2-stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      padding: 40px 0;
+    }
+
+    .lab2-info {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .lab2-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .lab2-info .lab2-hint {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 18px;
+      border-radius: 999px;
+      background: rgba(82, 39, 255, 0.12);
+      color: #5227FF;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+  </style>
+</head>
+<body>
+  <!-- 固定返回主站按钮 -->
+  <a class="pj-back-fixed" href="../index.html" aria-label="返回主站">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M15 18l-6-6 6-6"/></svg>
+    返回主站
+  </a>
+  <!-- 滚动进度条 & 自定义光标系统 -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-expand" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <main>
+    <!-- 银河系星空背景画布 -->
+    <canvas id="project-galaxy-canvas" aria-hidden="true"></canvas>
+
+    <section class="pj-section">
+      <div class="pj-wrap">
+        <!-- 面包屑导航 -->
+        <a class="pj-breadcrumb" href="../index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+          返回主站
+        </a>
+
+        <!-- 页面标题 -->
+        <p class="pj-kicker">Lab · 实验室</p>
+        <h1 class="pj-title">实验室2号</h1>
+        <p class="pj-lead">Cubes — 3D 透视立方体网格交互效果</p>
+        <div class="pj-chips">
+          <span style="background:rgba(82,39,255,0.2);color:#5227FF;font-weight:800;padding:4px 14px;border-radius:999px;box-shadow:0 0 10px rgba(82,39,255,0.25)">React Bits</span>
+          <span>GSAP 动画驱动</span>
+        </div>
+
+        <!-- Cubes 组件展示区 -->
+        <div class="lab2-stage">
+          <div id="cubes-container" style="position:relative;width:100%;display:flex;align-items:center;justify-content:center;height:600px;"></div>
+        </div>
+
+        <!-- 效果说明 -->
+        <div class="lab2-info">
+          <p>移动鼠标查看 3D 倾斜效果，点击触发波纹扩散。无操作时自动播放动画。</p>
+          <span class="lab2-hint">移植自 React Bits · Cubes</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== JavaScript ===== -->
+  <script src="../js/sub-page.js" defer></script>
+  <script src="../js/project-galaxy.js" defer></script>
+  <script src="../js/click-spark.js" defer></script>
+  <!-- GSAP 动画库（Cubes 依赖） -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+  <!-- Cubes 组件 -->
+  <script src="../js/cubes.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 等待 GSAP 加载完成后初始化 Cubes
+      function tryInit() {
+        if (typeof gsap !== 'undefined' && typeof initCubes === 'function') {
+          initCubes('cubes-container', {
+            gridSize: 8,
+            maxAngle: 60,
+            radius: 4,
+            borderStyle: '2px dashed #5227FF',
+            faceColor: '#1a1a2e',
+            rippleColor: '#ff6b6b',
+            rippleSpeed: 1.5,
+            autoAnimate: true,
+            rippleOnClick: true
+          });
+        } else {
+          setTimeout(tryInit, 100);
+        }
+      }
+      tryInit();
+    });
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('../sw.js').catch(function(e) {
+          console.warn('SW 注册失败：', e);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

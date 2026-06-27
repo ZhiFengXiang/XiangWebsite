@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于 | Xiang</title>
+  <meta name="description" content="Xiang 个人网站项目介绍、技术栈、文件结构与更新日志。">
+  <link rel="icon" type="image/webp" href="../images/head-icon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Google Fonts 非阻塞加载：preload 预载，加载完成后切换为 stylesheet，并提供 noscript 回退 -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"></noscript>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/project-page.css">
+  <!-- 子页面通用样式外链（银河画布定位与内容层级），替代原内联样式块中的对应规则 -->
+  <link rel="stylesheet" href="../css/sub-page.css">
+  <!-- PWA 清单引用 -->
+  <link rel="manifest" href="../manifest.webmanifest">
+  <!-- about 页面专属样式（特性卡片、技术标签、文件树、更新日志时间线） -->
+  <link rel="stylesheet" href="../css/about-page.css">
+</head>
+<body>
+  <!-- 固定返回主站按钮 — 左上角毛玻璃胶囊 -->
+  <a class="pj-back-fixed" href="../index.html" aria-label="返回主站">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M15 18l-6-6 6-6"/></svg>
+    返回主站
+  </a>
+  <!-- 滚动进度条 & 自定义光标系统 -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-expand" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <main>
+    <!-- 银河系星空背景画布 -->
+    <canvas id="project-galaxy-canvas" aria-hidden="true"></canvas>
+
+    <!-- ==================== 关于页面主体 ==================== -->
+    <section class="pj-section">
+      <div class="pj-wrap">
+        <!-- 面包屑导航 — 返回主站 -->
+        <a class="pj-breadcrumb" href="../index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+          返回主站
+        </a>
+
+        <!-- 页面标题区域 -->
+        <p class="pj-kicker">About · 关于本站</p>
+        <h1 class="pj-title">Xiang 个人网站</h1>
+        <p class="pj-lead">一个展示个人作品、技能和经历的现代网站，采用深色主题设计，包含丰富的动画效果</p>
+        <!-- 版本号、更新日期、作者标签 -->
+        <div class="pj-chips">
+          <span style="background:rgba(120,148,255,0.2);color:var(--blue);font-weight:800;padding:4px 14px;border-radius:999px;box-shadow:0 0 10px rgba(120,148,255,0.25)">v1.8.3</span>
+          <span>最后更新：2026年6月24日</span>
+        </div>
+
+        <!-- ==================== 项目特点 ==================== -->
+        <div class="pj-body">
+          <h3 class="pj-h3">🎨 视觉设计</h3>
+        </div>
+
+        <div class="ab-feature-grid">
+          <!-- 特性卡片：深色主题 -->
+          <div class="ab-feature reveal">
+            <span class="ab-feature-icon">🎨</span>
+                    <h3>深色主题</h3>
+            <p>精心调配的暗色方案，长时间浏览不疲劳，配合动态渐变点缀</p>
+          </div>
+          <!-- 特性卡片：银河星空背景 -->
+          <div class="ab-feature reveal">
+            <span class="ab-feature-icon">🌌</span>
+                    <h3>银河星空背景</h3>
+            <p>Canvas 实时渲染的星云、流星动画，性能优化，移动端自动降级</p>
+          </div>
+          <!-- 特性卡片：毛玻璃导航 -->
+          <div class="ab-feature reveal">
+            <span class="ab-feature-icon">💎</span>
+                    <h3>毛玻璃导航</h3>
+            <p>Win11 风格圆角胶囊导航栏，backdrop-filter 实现模糊透明效果</p>
+          </div>
+          <!-- 特性卡片：自定义光标 -->
+          <div class="ab-feature reveal">
+            <span class="ab-feature-icon">🎯</span>
+                    <h3>自定义光标</h3>
+            <p>点 + 扩散环 + 跟随环三重光标系统，悬停交互增强</p>
+          </div>
+          <!-- 特性卡片：滚动渐显动画 -->
+          <div class="ab-feature reveal">
+            <span class="ab-feature-icon">✨</span>
+                    <h3>滚动渐显动画</h3>
+            <p>IntersectionObserver 驱动的元素入场动画，高性能无抖动</p>
+          </div>
+          <!-- 特性卡片：响应式适配 -->
+          <div class="ab-feature reveal">
+            <span class="ab-feature-icon">📱</span>
+                    <h3>响应式适配</h3>
+            <p>从 420px 到 2K+ 全尺寸适配，移动端菜单、触控优化</p>
+          </div>
+        </div>
+
+        <!-- ==================== 技术栈 ==================== -->
+        <div class="pj-body">
+          <h3 class="pj-h3">技术栈</h3>
+        </div>
+
+        <!-- 技术标签胶囊列表 -->
+        <div class="ab-tech-list">
+          <span class="ab-tech">HTML5</span>
+          <span class="ab-tech">CSS3</span>
+          <span class="ab-tech">JavaScript ES6+</span>
+          <span class="ab-tech">Canvas API</span>
+          <span class="ab-tech">IntersectionObserver</span>
+          <span class="ab-tech">Google Fonts (Inter)</span>
+        </div>
+
+        <!-- ==================== 项目结构 ==================== -->
+        <div class="pj-body">
+          <h3 class="pj-h3">项目结构</h3>
+        </div>
+
+        <!-- 文件树展示 -->
+        <div class="ab-tree"><span class="dir">xiang/</span>
+├── <span class="file">index.html</span>                <span class="comment"># 主页</span>
+├── <span class="dir">css/</span>
+│   ├── <span class="file">styles.css</span>            <span class="comment"># 主样式表（含所有组件样式）</span>
+│   └── <span class="file">project-page.css</span>      <span class="comment"># 项目详情页专用样式</span>
+├── <span class="dir">js/</span>
+│   ├── <span class="file">main.js</span>                <span class="comment"># 主交互逻辑（加载动画、导航、滚动渐显、光标、评价轮播、技能弹窗）</span>
+│   ├── <span class="file">galaxy.js</span>              <span class="comment"># 首页银河系星云背景动画</span>
+│   ├── <span class="file">now-stars.js</span>           <span class="comment"># 当前状态区域星空背景</span>
+│   ├── <span class="file">skills-smoke.js</span>        <span class="comment"># 技能区域黑金粒子光标效果</span>
+│   ├── <span class="file">cam-info.js</span>            <span class="comment"># 摄影作品悬停显示设备信息</span>
+│   ├── <span class="file">sub-page.js</span>            <span class="comment"># 二级页面通用逻辑（滚动渐显、光标、进度条）</span>
+│   └── <span class="file">project-galaxy.js</span>      <span class="comment"># 二级页面银河系星空背景</span>
+├── <span class="dir">page2/</span>
+│   ├── <span class="file">about.html</span>             <span class="comment"># 关于页面</span>
+│   ├── <span class="file">ai.html</span>                <span class="comment"># AI 前沿科技探索项目页</span>
+│   └── <span class="file">project-details.html</span>   <span class="comment"># 项目详情汇总页</span>
+└── <span class="dir">images/</span>
+    ├── <span class="file">head-icon.webp</span>         <span class="comment"># 网站图标</span>
+    ├── <span class="dir">icon/</span>                  <span class="comment"># 技能图标</span>
+    ├── <span class="dir">photo/</span>                 <span class="comment"># 摄影作品图片</span>
+    └── <span class="dir">project/</span>               <span class="comment"># 项目展示图片</span>
+        └── <span class="dir">detail/</span>            <span class="comment"># 项目详情图片</span></div>
+
+        <!-- ==================== 更新日志 ==================== -->
+        <div class="pj-body">
+          <h3 class="pj-h3">更新日志</h3>
+        </div>
+
+        <!-- 更新日志时间线 -->
+        <div class="ab-changelog">
+          <!-- v1.8.3 — 当前版本 -->
+          <div class="ab-version is-current reveal">
+            <div class="ab-version-header">
+              <h3>v1.8.3</h3>
+              <span class="ab-version-tag ab-tag-current">当前版本</span>
+            </div>
+            <ul>
+              <li>修复二级界面段落滚动位置问题（切换段落默认从顶部开始）</li>
+              <li>删除无关文件，清理失效引用</li>
+              <li>项目二级界面图片增加卡片悬停放大效果</li>
+              <li>增加很多多多多的动画效果</li>
+            </ul>
+          </div>
+
+          <!-- v1.8.2 -->
+          <div class="ab-version reveal">
+            <div class="ab-version-header">
+              <h3>v1.8.2</h3>
+            </div>
+            <ul>
+              <li>优化内容排版</li>
+              <li>代码优化</li>
+              <li>网站信息页面备案信息移至页面底部</li>
+              <li>为全部代码文件添加/优化中文注释</li>
+            </ul>
+          </div>
+
+          <!-- v1.8.0 -->
+          <div class="ab-version reveal">
+            <div class="ab-version-header">
+              <h3>v1.8.0</h3>
+            </div>
+            <ul>
+              <li>新增网站信息页面：展示项目信息与更新日志</li>
+              <li>导航栏新增网站信息入口：一键访问项目详情</li>
+              <li>优化项目二级界面信息</li>
+            </ul>
+          </div>
+
+          <!-- v1.7.5 -->
+          <div class="ab-version reveal">
+            <div class="ab-version-header">
+              <h3>v1.7.5</h3>
+            </div>
+            <ul>
+              <li>图片文件夹分类：重新组织图片文件结构</li>
+              <li>images/photo/ 存放摄影作品，images/project/ 存放项目图片</li>
+              <li>智能设备识别：摄影作品悬停显示不同 emoji（📱 手机 / 📷 相机 / 🎞️ 胶片）</li>
+              <li>路径优化：更新所有图片引用路径</li>
+              <li>代码清理：优化文件结构和命名</li>
+            </ul>
+          </div>
+
+          <!-- v1.7.4 -->
+          <div class="ab-version reveal">
+            <div class="ab-version-header">
+              <h3>v1.7.4</h3>
+            </div>
+            <ul>
+              <li>修复星空背景显示问题</li>
+              <li>优化光标效果性能</li>
+              <li>更新项目数据文件</li>
+              <li>清理项目文件结构</li>
+            </ul>
+          </div>
+
+          <!-- v1.7.3 -->
+          <div class="ab-version reveal">
+            <div class="ab-version-header">
+              <h3>v1.7.3</h3>
+            </div>
+            <ul>
+              <li>修复二级界面黑屏问题</li>
+              <li>评价卡片间隙优化</li>
+              <li>评价卡片切换动画加速</li>
+            </ul>
+          </div>
+
+          <!-- v1.7.2 -->
+          <div class="ab-version reveal">
+            <div class="ab-version-header">
+              <h3>v1.7.2</h3>
+            </div>
+            <ul>
+              <li>新增 AI 评价轮播效果</li>
+              <li>优化项目卡片交互</li>
+              <li>修复响应式布局问题</li>
+            </ul>
+          </div>
+
+          <!-- v1.7.1 -->
+          <div class="ab-version reveal">
+            <div class="ab-version-header">
+              <h3>v1.7.1</h3>
+            </div>
+            <ul>
+              <li>新增银河系星空背景</li>
+              <li>优化自定义光标效果</li>
+              <li>新增技能烟雾效果</li>
+            </ul>
+          </div>
+
+          <!-- v1.7.0 -->
+          <div class="ab-version reveal">
+            <div class="ab-version-header">
+              <h3>v1.7.0</h3>
+            </div>
+            <ul>
+              <li>Hero 区域替换为 Canvas 星空背景</li>
+              <li>导航栏升级为 Win11 风格毛玻璃效果</li>
+              <li>项目卡片新增兄弟卡片阴影联动</li>
+              <li>评价卡片改为轮播模式</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ==================== 许可说明 ==================== -->
+        <div class="pj-body">
+          <h3 class="pj-h3">许可说明</h3>
+          <p>本项目为个人作品展示网站，所有内容和设计均为原创。</p>
+        </div>
+
+        <!-- ==================== 备案信息（移至页面底部） ==================== -->
+        <div class="pj-body" style="margin-top:40px;">
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-size:0.82rem;color:var(--muted);">
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer" style="color:var(--muted);">京ICP备2025125899号-3</a>
+            <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noreferrer" style="color:var(--muted);">京公网安备11010802047684号</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+
+  <!-- ===== JavaScript 脚本加载 ===== -->
+  <!-- sub-page.js: 二级页面通用逻辑（段落切换、自定义光标、进度条） -->
+  <!-- project-galaxy.js: 银河系星空背景动画 -->
+  <script src="../js/sub-page.js" defer></script>
+  <script src="../js/project-galaxy.js" defer></script>
+  <script src="../js/click-spark.js" defer></script>
+  <!-- PWA：注册 Service Worker 实现离线缓存与资源预载 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('../sw.js').catch(function(e) {
+          console.warn('SW 注册失败：', e);
+        });
+      });
+    }
+  </script>
+</body>
+</html>

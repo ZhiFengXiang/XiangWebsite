@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>项目详情汇总 | Xiang</title>
+  <meta name="description" content="汇总 Xiang 的多个项目二级界面，包括赛事、视频、设计、创作、定格动画和闲鱼体验等内容。">
+  <link rel="icon" type="image/webp" href="../images/head-icon.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/project-page.css">
+  <link rel="stylesheet" href="../css/film-festival-awards.css">
+    <!-- 内联样式 — 银河画布定位（与 sub-page.css 功能一致，此处保留以确保层级正确） -->
+    <style>
+      #project-galaxy-canvas {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+      }
+      main,
+      .pj-section {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+</head>
+<body>
+    <!-- 固定返回主站按钮 — 左上角毛玻璃胶囊 -->
+    <a class="pj-back-fixed" href="../index.html#projects" aria-label="返回主站">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M15 18l-6-6 6-6"/></svg>
+    返回主站
+  </a>
+  <!-- 段落进度条 — 左侧垂直固定，显示当前段落位置 -->
+  <div class="pj-section-bar" aria-hidden="true">
+    <div class="pj-section-bar-track">
+      <div class="pj-section-bar-fill"></div>
+    </div>
+  </div>
+  <!-- 滚动进度条 & 自定义光标系统 -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-expand" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+  <main>
+        <!-- 银河系星空背景画布 — 由 project-galaxy.js 控制绘制 -->
+        <canvas id="project-galaxy-canvas" aria-hidden="true"></canvas>
+    <!-- ==================== ACC 赛事运营项目 ==================== -->
+    <section class="pj-section" id="project-acc">
+      <div class="pj-wrap">
+        <a class="pj-breadcrumb" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+          返回主站
+        </a>
+
+        <p class="pj-kicker">赛事运营 · 模拟赛车社区</p>
+        <h1 class="pj-title">85天，我办了一场85人参与的比赛</h1>
+        <p class="pj-lead">从一个一闪而过的念头，到一场持续运营的模拟赛车赛事：规则、宣发、转播、判罚、服务器搭建和社区运营，全部从零开始跑通。</p>
+        <div class="pj-chips">
+          <span>Assetto Corsa Competizione</span>
+          <span>赛事策划</span>
+          <span>社区运营</span>
+          <span>比赛转播</span>
+          <span>服务器搭建</span>
+        </div>
+
+        <!-- 编辑正文 — 项目详细描述 -->
+        <div class="pj-body">
+          <p>在几个月前，办一个赛车比赛只是我脑海中一闪而过的想法。现在，我基于拟真向硬核的赛车模拟器《神力科莎：争锋》（Assetto Corsa Competizione），办了一个模拟赛车比赛，至今举行了 19 场比赛，达到 400+ 参赛人次，总花费不过两百元。而 ACC 夏日挑战赛已然成为了圈内颇有名气的比赛，甚至被莱仕达官方赛事借鉴。</p>
+
+          <div class="pj-img-row">
+            <figure><img src="../images/project/detail/acc2.webp" alt="ACC 比赛画面 1" loading="lazy"><figcaption>赛事转播画面</figcaption></figure>
+            <figure><img src="../images/project/detail/acc1.webp" alt="ACC 比赛画面 2" loading="lazy"><figcaption>比赛实况</figcaption></figure>
+          </div>
+
+          <p>从规则的制定再到各个平台的宣发，后面还尝试了 B 站转播加解说加判罚，非常庆幸平时积累的技能恰好在此时与爱好专业对口。一路上我遇到了香港的初中小孩哥、只有半夜在线的英国华侨、白天送外卖晚上备考研的手柄大佬、B 站 up 主贾斯汀……一个源于热爱的冲动，在未曾设想的道路上，竟牵引出如此多的连接与成长。</p>
+
+          <p>由于《神力科莎：争锋》（ACC）是一个模拟现实物理的硬核赛车游戏，本体没有任何游戏性，甚至连官方联机服务器都没有，我的比赛服务器由自行购买的阿里云 ECS 搭建。</p>
+
+          <div class="pj-img-row">
+            <figure><img src="../images/project/detail/acc3.webp" alt="ACC 赛事图 3" loading="lazy"><figcaption>服务器搭建</figcaption></figure>
+            <figure><img src="../images/project/detail/acc4.webp" alt="ACC 赛事图 4" loading="lazy"><figcaption>社区互动</figcaption></figure>
+          </div>
+        </div>
+
+        <!-- 数据高亮 — 关键统计数据展示 -->
+        <div class="pj-stats">
+          <div class="pj-stat">
+            <div class="pj-stat-num">19 场</div>
+            <div class="pj-stat-label">已举办比赛</div>
+          </div>
+          <div class="pj-stat">
+            <div class="pj-stat-num">400+</div>
+            <div class="pj-stat-label">累计参赛人次</div>
+          </div>
+          <div class="pj-stat">
+            <div class="pj-stat-num">＜200￥</div>
+            <div class="pj-stat-label">长期赛事总花费</div>
+          </div>
+        </div>
+
+        <!-- 外链 — 相关链接按钮 -->
+        <div class="pj-links">
+          <a class="pj-link-btn" href="https://cubic-racing.online/" target="_blank" rel="noreferrer">
+            查看官网 <span class="pj-link-url">cubic-racing.online</span><span class="pj-link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </a>
+          <a class="pj-link-btn" href="https://data.cubic-racing.online/" target="_blank" rel="noreferrer">
+            比赛数据可视化 <span class="pj-link-url">data.cubic-racing.online</span><span class="pj-link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== F1 赛事项目 ==================== -->
+    <section class="pj-section" id="project-f1">
+      <div class="pj-wrap">
+        <a class="pj-breadcrumb" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+          返回主站
+        </a>
+
+        <p class="pj-kicker">数据可视化 · F1</p>
+        <h1 class="pj-title">高中生带你认识F1</h1>
+        <p class="pj-lead">F1？也许大部分人对这项运动感到陌生。随着 2024 年中国大奖赛的回归，作为资深车迷和 B 站 up 主，我使用了一些有趣的工具将 F1 数据可视化，希望能帮助大家更了解这项运动，让 F1 文化被更多人熟知和喜爱。</p>
+        <div class="pj-chips">
+          <span>F1 数据可视化</span>
+          <span>视频创作</span>
+          <span>Tableau</span>
+          <span>Touchdesigner</span>
+        </div>
+
+        <div class="pj-body">
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/detail/f11.webp" alt="F1 工程截图 1" loading="lazy"><figcaption>Davinci 剪辑</figcaption></figure>
+            <figure><img src="../images/project/detail/f12.webp" alt="F1 工程截图 2" loading="lazy"><figcaption>Tableau 可视化</figcaption></figure>
+            <figure><img src="../images/project/detail/f13.webp" alt="F1 工程截图 3" loading="lazy"><figcaption>Touchdesigner 粒子</figcaption></figure>
+            <figure><img src="../images/project/detail/f14.webp" alt="F1 工程截图 1" loading="lazy"><figcaption>视频静帧</figcaption></figure>
+            <figure><img src="../images/project/detail/f15.webp" alt="F1 工程截图 2" loading="lazy"><figcaption>视频静帧</figcaption></figure>
+          </div>
+        </div>
+                <!-- 获奖 — 赛事获奖记录 -->
+        <div class="pj-awards">
+          <div class="pj-award-card">
+            <div class="pj-award-info">
+              <div class="pj-award-title">数字媒体类 一等奖</div>
+              <div class="pj-award-org">第十九届中国国际大学生动画节小白杨奖</div>
+            </div>
+          </div>
+          <div class="pj-award-card">
+            <div class="pj-award-info">
+              <div class="pj-award-title">A档</div>
+              <div class="pj-award-org">中国传媒大学2024常年作品集征集</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pj-links">
+          <a class="pj-link-btn" href="https://www.bilibili.com/video/BV13MWXeQEkC/?spm_id_from=333.1387.homepage.video_card.click" target="_blank" rel="noreferrer">
+            去 B 站观看 <span class="pj-link-url">bilibili.com</span><span class="pj-link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+ 
+
+    <!-- ==================== 游戏本项目 ==================== -->
+    <section class="pj-section" id="project-gamebook">
+      <div class="pj-wrap">
+        <a class="pj-breadcrumb" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+          返回主站
+        </a>
+
+        <p class="pj-kicker">游戏设计</p>
+        <h1 class="pj-title">小学就开始做游戏的人</h1>
+        <p class="pj-lead">我从小学开始接触游戏，立马被这种新的媒介吸引。因为喜欢，开始自发制作游戏，包括 3 部 PPT 闯关游戏和 13 部"游戏本"，在年级内获得了大量"用户"。虽然制作谈不上精良，倒是数值膨胀、后期内容复杂等网游常见问题，在我还不知道这些名词前已经体会到了开发者的感受……</p>
+        <div class="pj-chips">
+          <span>游戏设计</span>
+          <span>PPT 闯关游戏</span>
+        </div>
+
+        <div class="pj-body">
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/detail/g1.webp" alt="游戏本 1" loading="lazy"><figcaption>PPT 闯关游戏</figcaption></figure>
+            <figure><img src="../images/project/detail/g2.webp" alt="游戏本 2" loading="lazy"><figcaption>游戏本</figcaption></figure>
+            <figure><img src="../images/project/detail/g3.webp" alt="游戏本 3" loading="lazy"><figcaption>设计手稿</figcaption></figure>
+          </div>
+
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/detail/g4.webp" alt="游戏本 4" loading="lazy"><figcaption>机制设计</figcaption></figure>
+            <figure><img src="../images/project/detail/g5.webp" alt="游戏本 5" loading="lazy"><figcaption>数值系统</figcaption></figure>
+            <figure><img src="../images/project/detail/g6.webp" alt="游戏本 6" loading="lazy"><figcaption>武器设计</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+       <!-- ==================== BJI 手机体验项目 ==================== -->
+    <section class="pj-section" id="project-bji">
+      <div class="pj-wrap">
+        <a class="pj-breadcrumb" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+          返回主站
+        </a>
+
+        <p class="pj-kicker">AI短片 · 毕业典礼</p>
+        <h1 class="pj-title">AI短片《纸条》</h1>
+        <p class="pj-lead">在 2026 年学校毕业典礼上，我负责开场视频全流程制作，根据原创剧本，使用实拍照片进行AI重绘，再根据AI图像和分镜生成视频。</p>
+        <div class="pj-chips">
+          <span>视频制作</span>
+          <span>AI</span>
+        </div>
+
+        <div class="pj-body">
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/detail/a1.webp" alt="概念设计 1" loading="lazy"><figcaption>参考图拍摄</figcaption></figure>
+            <figure><img src="../images/project/detail/a2.webp" alt="概念设计 2" loading="lazy"><figcaption>视频静帧</figcaption></figure>
+            <figure><img src="../images/project/detail/a3.webp" alt="概念设计 3" loading="lazy"><figcaption>视频静帧</figcaption></figure>
+          </div>
+
+          <div class="pj-img-row">
+            <figure><img src="../images/project/detail/a4.webp" alt="实机对比 1" loading="lazy"><figcaption>项目文件展示（部分）</figcaption></figure>
+            <figure><img src="../images/project/detail/a5.webp" alt="实机对比 2" loading="lazy"><figcaption>现场播放</figcaption></figure>
+          </div>
+          
+          <div class="pj-links">
+            <a class="pj-link-btn" href="https://xiang.cubic-racing.online/" target="_blank" rel="noreferrer">
+              查看详细剧本 <span class="pj-link-url">  </span><span class="pj-link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg></span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ==================== 定格动画项目 ==================== -->
+    <section class="pj-section" id="project-stop-motion">
+      <div class="pj-wrap">
+        <a class="pj-breadcrumb" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+          返回主站
+        </a>
+
+        <p class="pj-kicker">定格动画 · 毕业典礼</p>
+        <h1 class="pj-title">乐高定格动画《在北医普通的一天》</h1>
+        <p class="pj-lead">在 2025 年学校毕业典礼上，我负责制作回顾、暖场和开场视频。开场视频中，我仿照中传 B 站发布的短片《时·空》，制作了《在北医普通的一天》乐高定格动画。单人制作让我体验到了定格全流程，也体验到了拍摄的痛苦与快乐。</p>
+        <div class="pj-chips">
+          <span>定格动画</span>
+          <span>乐高</span>
+          <span>毕业典礼</span>
+          <span>视频制作</span>
+        </div>
+
+        <div class="pj-body">
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/detail/lego1.webp" alt="定格动画 1" loading="lazy"><figcaption>视频静帧</figcaption></figure>
+            <figure><img src="../images/project/detail/lego2.webp" alt="定格动画 2" loading="lazy"><figcaption>视频静帧</figcaption></figure>
+            <figure><img src="../images/project/detail/lego3.webp" alt="定格动画 3" loading="lazy"><figcaption>视频静帧</figcaption></figure>
+          </div>
+
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/detail/lego4.webp" alt="定格动画 4" loading="lazy"><figcaption>幕后拍摄</figcaption></figure>
+            <figure><img src="../images/project/detail/lego5.webp" alt="定格动画 5" loading="lazy"><figcaption>视频静帧</figcaption></figure>
+            <figure><img src="../images/project/detail/lego6.webp" alt="定格动画 6" loading="lazy"><figcaption>视频静帧</figcaption></figure>
+          </div>
+
+          <p>最后放映时，心脏扑通扑通跳：</p>
+
+          <div class="pj-img-row">
+            <figure><img src="../images/project/detail/lego7.webp" alt="现场播放" loading="lazy"><figcaption>毕业典礼现场放映</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- ==================== 闲鱼体验项目 ==================== -->
+    <section class="pj-section" id="project-xianyu">
+      <div class="pj-wrap">
+        <a class="pj-breadcrumb" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M15 18l-6-6 6-6"/></svg>
+          返回主站
+        </a>
+
+        <p class="pj-kicker">产品体验 · 闲鱼经营</p>
+        <h1 class="pj-title">闲鱼现金流体验科技产品</h1>
+        <p class="pj-lead">秉承着"买回来先加价挂闲鱼"的习惯，我靠着脆弱的现金流体验到了各种科技产品，包括 18 台手机、14 种相机、13 种胶片以及各种奇奇怪怪的产品，同时我也在销售胶片并提供冲洗服务，至今闲鱼账号总销售额达到了：6.2 万元。</p>
+        <div class="pj-chips">
+          <span>数码产品体验</span>
+          <span>二手交易</span>
+          <span>胶片销售</span>
+          <span>冲洗服务</span>
+        </div>
+
+        <div class="pj-stats">
+          <div class="pj-stat">
+            <div class="pj-stat-num">6.2 万</div>
+            <div class="pj-stat-label">闲鱼总销售额</div>
+          </div>
+          <div class="pj-stat">
+            <div class="pj-stat-num">18 台</div>
+            <div class="pj-stat-label">手机体验数量</div>
+          </div>
+          <div class="pj-stat">
+            <div class="pj-stat-num">14 种</div>
+            <div class="pj-stat-label">相机体验数量</div>
+          </div>
+        </div>
+
+        <div class="pj-body">
+          <h3 class="pj-h3">部分体验产品</h3>
+
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/xianyuStore.webp" alt="Xiaomi 12S" loading="lazy"><figcaption>Xiaomi 12S</figcaption></figure>
+            <figure><img src="../images/project/xianyuStore.webp" alt="Meizu 16th" loading="lazy"><figcaption>Meizu 16th</figcaption></figure>
+            <figure><img src="../images/project/xianyuStore.webp" alt="Samsung S10" loading="lazy"><figcaption>Samsung S10</figcaption></figure>
+          </div>
+
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/xianyuStore.webp" alt="Samsung S21" loading="lazy"><figcaption>Samsung S21</figcaption></figure>
+            <figure><img src="../images/project/xianyuStore.webp" alt="Lumia 530" loading="lazy"><figcaption>Lumia 530</figcaption></figure>
+            <figure><img src="../images/project/xianyuStore.webp" alt="Meizu 18" loading="lazy"><figcaption>Meizu 18</figcaption></figure>
+          </div>
+
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/xianyuStore.webp" alt="Sony A7C" loading="lazy"><figcaption>Sony A7C</figcaption></figure>
+            <figure><img src="../images/project/xianyuStore.webp" alt="Rollei B35" loading="lazy"><figcaption>Rollei B35</figcaption></figure>
+            <figure><img src="../images/project/xianyuStore.webp" alt="Minolta X-300" loading="lazy"><figcaption>Minolta X-300</figcaption></figure>
+          </div>
+
+          <div class="pj-img-row pj-img-row--3">
+            <figure><img src="../images/project/xianyuStore.webp" alt="iPad mini 6" loading="lazy"><figcaption>iPad mini 6</figcaption></figure>
+            <figure><img src="../images/project/xianyuStore.webp" alt="CMF Watch" loading="lazy"><figcaption>CMF Watch</figcaption></figure>
+            <figure><img src="../images/project/xianyuStore.webp" alt="胶片与镜头" loading="lazy"><figcaption>胶片与镜头</figcaption></figure>
+          </div>
+        </div>
+
+        <p class="pj-caption">图片为临时占位素材，后续可替换为各产品实物照片。</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== JavaScript 脚本加载 ===== -->
+  <!-- sub-page.js: 二级页面通用逻辑（段落切换、自定义光标、进度条） -->
+  <!-- project-galaxy.js: 银河系星空背景动画 -->
+  <script src="../js/sub-page.js" defer></script>
+  <script src="../js/project-galaxy.js" defer></script>
+  <script src="../js/click-spark.js" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+

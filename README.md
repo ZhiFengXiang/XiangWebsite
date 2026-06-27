@@ -1,4 +1,4 @@
-# Xiang 个人网站 v1.8.0
+# Xiang 个人网站 v1.8.3
 
 一个展示个人作品、技能和经历的现代个人网站，采用深色主题设计，包含丰富的动画效果。
 
@@ -18,6 +18,7 @@
 - **滚动渐显**：元素进入视口时的动画
 - **技能烟雾效果**：鼠标跟随的粒子效果
 - **流星效果**：随机出现的流星动画
+- **图片悬停放大**：项目卡片非线性回弹放大动画
 
 ### 📱 功能特性
 
@@ -33,17 +34,22 @@
 .
 ├── index.html                  # 主页面结构
 ├── README.md                   # 项目说明文档
+├── package.json                # 项目配置（ESM + 测试脚本）
+├── manifest.webmanifest        # PWA 清单
+├── sw.js                       # Service Worker
 ├── css/
 │   ├── styles.css              # 全局样式（暗色主题、毛玻璃、卡片、响应式等）
 │   ├── project-page.css        # 项目详情页专用样式（Apple editorial 风格）
-│   └── film-festival-awards.css # 电影节奖项专用样式
+│   ├── about-page.css          # 关于页面专用样式
+│   └── sub-page.css            # 二级页面通用样式
 ├── js/
 │   ├── main.js                 # 主页交互逻辑（光标、倾斜、轮播、涟漪等）
 │   ├── galaxy.js               # Canvas 银河系星云背景（独立模块）
 │   ├── now-stars.js            # now 板块星空粒子背景
 │   ├── skills-smoke.js         # skills 板块烟雾跟随效果
 │   ├── cam-info.js             # 摄影作品智能设备识别和emoji显示
-│   ├── sub-page.js             # 子页面共用交互（光标、滚动、进度条）
+│   ├── exif-parser.js          # EXIF 信息解析
+│   ├── sub-page.js             # 子页面共用交互（光标、滚动、进度条、段落切换）
 │   └── project-galaxy.js       # 子页面银河星空背景
 ├── page2/
 │   ├── about.html              # 关于页面（项目信息与更新日志）
@@ -61,18 +67,11 @@
 │   │   ├── gamebook.webp       # 项目封面：游戏本设计
 │   │   ├── BJIPhone.webp       # 项目封面：BJI手机设计
 │   │   ├── BYFZDay.webp        # 项目封面：BYFZ Day
-│   │   └── xianyuStore.webp    # 项目封面：闲鱼店铺
+│   │   ├── xianyuStore.webp    # 项目封面：闲鱼店铺
+│   │   └── detail/             # 项目详情图片
 │   ├── icon/                   # 图标文件夹
 │   └── head-icon.webp          # 网站标签页图标
-└── projects data/
-    ├── acc.txt                 # ACC夏日挑战赛项目数据
-    ├── ai.txt                  # AI项目数据
-    ├── bilibili.txt            # B站up主项目数据
-    ├── bji.txt                 # BJI手机设计项目数据
-    ├── f1.txt                  # F1数据可视化项目数据
-    ├── gamebook.txt            # 游戏本设计项目数据
-    ├── stop-motion.txt         # 定格动画项目数据
-    └── xianyu.txt              # 闲鱼店铺项目数据
+└── test/                       # 测试文件（Node.js 内置测试框架）
 `
 
 ## 技术栈
@@ -93,7 +92,20 @@
 
 ## 更新日志
 
-### v1.8.0 (当前版本)
+## v1.8.3 (当前版本)
+
+* 修复二级界面段落滚动位置问题（切换段落默认从顶部开始）
+* 删除无关文件，清理失效引用
+* 为"关于本站"添加返回主站按钮
+* 项目二级界面图片增加卡片悬停放大效果（非线性回弹动画）
+* 统一版本号至 v1.8.3
+
+### v1.8.2
+
+* 优化内容排版
+* 代码优化
+
+### v1.8.0
 
 - **新增网站信息页面**：展示项目信息与更新日志
 - **导航栏新增网站信息入口**：一键访问项目详情
@@ -149,6 +161,6 @@
 
 ---
 
-**最后更新**：2026年6月9日
-**版本**：v1.8.0
+**最后更新**：2026年6月24日
+**版本**：v1.8.3
 **作者**：Xiang

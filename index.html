@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -8,18 +8,27 @@
     <link rel="icon" type="image/webp" href="images/head-icon.webp">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap"></noscript>
+<!-- Roboto Flex 可变字体：供 Hero 标题 TextPressure 效果使用（wght/wdth/ital 轴） -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&display=swap"></noscript>
+<!-- IBM Plex Mono：供联系区域 ASCIIText 效果的纹理文字与 ASCII 字形使用 -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap" onload="this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap"></noscript>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="manifest" href="./manifest.webmanifest">
 </head>
 
 <body>
 
-    <!-- 加载动画 -->
+    <!-- ===== 页面加载动画 ===== -->
+    <!-- 10 个灰色方块从顶部坠落回弹，加载完成后由 main.js 隐藏 -->
     <div id="loader" class="loader-overlay">
         <div class="loader-blocks">
             <div class="loader-block"></div>
             <div class="loader-block"></div>
-            
+
             <div class="loader-block"></div>
             <div class="loader-block"></div>
             <div class="loader-block"></div>
@@ -31,13 +40,15 @@
         </div>
     </div>
 
-    <!-- 滚动进度条 & 自定义光标 -->
+    <!-- ===== 滚动进度条 & 自定义光标系统 ===== -->
+    <!-- 三层光标：圆点(dot) + 扩展圆(expand) + 外环(ring)，由 main.js 控制 -->
     <div class="scroll-progress" aria-hidden="true"></div>
     <div class="cursor-dot" aria-hidden="true"></div>
     <div class="cursor-expand" aria-hidden="true"></div>
     <div class="cursor-ring" aria-hidden="true"></div>
 
-    <!-- 导航栏 -->
+    <!-- ===== 固定导航栏 ===== -->
+    <!-- 胶囊形状毛玻璃导航，包含品牌标识、导航链接、手机端汉堡菜单 -->
     <header class="site-header">
         <div class="nav-shell">
             <a class="brand" href="#top" aria-label="回到首页">
@@ -45,11 +56,11 @@
                 <span>主站</span>
             </a>
             <nav class="nav-links" aria-label="主导航">
-                <a href="#resume">经历</a>
-                <a href="#projects">项目</a>
-                <a href="#contact">联系</a>
-                <a href="page2/about.html">网站信息</a>
+                <a href="#projects">参与项目</a>
+                <a href="https://test.cubic-racing.online/">实验室</a>
+                <a href="page2/lab2.html">实验室2号</a>
                 <a href="https://cubic-racing.online/" target="_blank" rel="noopener noreferrer">三次项夏日挑战赛</a>
+                <a href="page2/about.html">网站信息</a>
             </nav>
             <button class="menu-toggle" type="button" aria-label="打开菜单" aria-expanded="false">
                 <span></span>
@@ -57,8 +68,13 @@
         </div>
     </header>
 
+    <!-- ===== 主要内容区域 ===== -->
+    <!-- 包含 Hero、当前状态、经历、教育、技能、摄影、项目、评价、联系等板块 -->
+
+
     <main id="top">
-        <!-- Hero -->
+        <!-- ===== 首页主视觉区域 (Hero) ===== -->
+        <!-- 全屏银河星空背景 + 大标题 + 行动按钮 -->
         <section class="hero" id="hero" aria-label="首页">
             <canvas id="galaxy-canvas"></canvas>
             <div class="wrap hero-grid">
@@ -74,13 +90,14 @@
             </div>
         </section>
 
-        <!-- 当前状态 -->
+        <!-- ===== #now 当前状态板块 ===== -->
+        <!-- 星空背景 + 状态卡片 + 事实卡片，展示当前专注方向 -->
         <section class="section" id="now">
             <canvas id="now-canvas"></canvas>
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="section-kicker">Now</p>
-                    <h2>当前状态😊</h2>
+                    <h2 data-decrypt-text>当前状态😊</h2>
                 </div>
                 <div class="status-grid">
                     <article class="status-card reveal" style="--glow: rgba(120, 148, 255, 0.36);">
@@ -98,22 +115,43 @@
             </div>
         </section>
 
-        <!-- 经历 -->
+        <!-- ===== #resume 经历时间线板块 ===== -->
+        <!-- 工作经历时间线卡片，带光标透镜效果 -->
         <section class="section" id="resume">
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="section-kicker">Career</p>
-                    <h2>出现过的地方🗺️</h2>
+                    <h2 data-decrypt-text>出现过的地方🗺️</h2>
                 </div>
                 <div class="timeline">
                     <article class="timeline-item reveal">
                         <div>
-                            <div class="date">2023.6 - Until Now</div>
-                            <div class="role">成员</div>
+                            <div class="date">2026.6 - Until Now</div>
+                            <div class="role">赛会合作伙伴&管理员</div>
                         </div>
                         <div>
-                            <h3>Z世代实验室</h3>
-                            <p>第一届残疾人EMBRACING公益音乐节组委会成员<br>鉴图栏目编辑&评委</p>
+                            <h3>Full Push社区</h3>
+                            <p>比赛运营<br>活动美术</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2025.6.29</div>
+                            <div class="role">工作人员</div>
+                        </div>
+                        <div>
+                            <h3>"Must Be F1"车迷包场电影活动</h3>
+                            <p>活动现场组织者<br>活动摄影师</p>
+                        </div>
+                    </article>
+                    <article class="timeline-item reveal">
+                        <div>
+                            <div class="date">2025.5 - 2026.6</div>
+                            <div class="role">创始人</div>
+                        </div>
+                        <div>
+                            <h3>三次项ACC夏日挑战赛</h3>
+                            <p>S1，S2赛季比赛解说<br>比赛运营<br>技术负责人<br>比赛裁判<br>直播包装和宣发海报制作</p>
                         </div>
                     </article>
                     <article class="timeline-item reveal">
@@ -126,24 +164,14 @@
                             <p>2026高三毕业典礼视频制作<br>2025高三毕业典礼视频制作<br>开学典礼摄影师<br>青春季记者<br>运动会摄影师</p>
                         </div>
                     </article>
-                    <article class="timeline-item reveal">
+                                        <article class="timeline-item reveal">
                         <div>
-                            <div class="date">2025.6.29</div>
-                            <div class="role">工作人员</div>
+                            <div class="date">2023.6 - Until Now</div>
+                            <div class="role">成员</div>
                         </div>
                         <div>
-                            <h3>"Must Be F1"车迷包场电影活动</h3>
-                            <p>活动现场志愿者<br>活动摄影师</p>
-                        </div>
-                    </article>
-                    <article class="timeline-item reveal">
-                        <div>
-                            <div class="date">2025.5 - 2025.8</div>
-                            <div class="role">创始人</div>
-                        </div>
-                        <div>
-                            <h3>三次项ACC夏日挑战赛S1，S2，S3赛季</h3>
-                            <p>S1，S2赛季比赛解说<br>比赛运营<br>技术负责人<br>比赛裁判<br>直播包装和宣发海报制作</p>
+                            <h3>Z世代实验室</h3>
+                            <p>第一届残疾人EMBRACING公益音乐节组委会成员<br>鉴图栏目编辑&评委</p>
                         </div>
                     </article>
                     <article class="timeline-item reveal">
@@ -160,12 +188,13 @@
             </div>
         </section>
 
-        <!-- 学校 -->
+        <!-- ===== #education 教育经历板块 ===== -->
+        <!-- 教育背景时间线，绿色调粒子背景 -->
         <section class="section" id="education">
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="section-kicker">Education</p>
-                    <h2>学校🏫</h2>
+                    <h2 data-decrypt-text>学校🏫</h2>
                 </div>
                 <div class="timeline">
                     <article class="timeline-item reveal">
@@ -174,7 +203,7 @@
                             <div class="role">影视摄影与制作</div>
                         </div>
                         <div>
-                            <h3>浙江传媒学院<br>Communication University of Zhejiang</h3>
+                            <h3>浙江传媒学院</h3>
                             <p>加载中......</p>
                         </div>
                     </article>
@@ -184,8 +213,8 @@
                             <div class="role">Good Student</div>
                         </div>
                         <div>
-                            <h3>北京大学附属中学(北医分校)<br>The Affiliated High School Of Peking University</h3>
-                            <p>第十九届中国国际大学生动画节小白杨奖 数字媒体类 一等奖<br>中国传媒大学数字媒体艺术常年作品征集 A<br>北医附中辩论队体验卡<br>全国版图知识竞赛 三等奖<br>第27届全国中小学生绘画书法比赛 三等奖</p>
+                            <h3>北京大学附属中学(北医分校)</h3>
+                            <p>第十九届中国国际大学生动画节小白杨奖 数字媒体类 一等奖<br>中国传媒大学数字媒体艺术常年作品征集 A<br>北医附中辩论队<br>全国版图知识竞赛 三等奖<br>第27届全国中小学生绘画书法比赛 三等奖</p>
                         </div>
                     </article>
                     <article class="timeline-item reveal">
@@ -194,8 +223,8 @@
                             <div class="role">Good Student</div>
                         </div>
                         <div>
-                            <h3>北京市海淀区教师进修学校附属实验学校(南校区)<br>Experimental School Affiliated to Haidian Teachers' Training College</h3>
-                            <p>教进南校微电影社(已倒闭) 副社长<br>北京市第二十三届学生艺术节海淀赛区管乐初中个人组 二等奖</p>
+                            <h3>北京市海淀区教师进修学校附属实验学校(南校区)</h3>
+                            <p>教进南校微电影社 副社长<br>北京市第二十三届学生艺术节海淀赛区管乐初中个人组 二等奖</p>
                         </div>
                     </article>
                     <article class="timeline-item reveal">
@@ -204,7 +233,7 @@
                             <div class="role">Good Student</div>
                         </div>
                         <div>
-                            <h3>北京市海淀区实验小学<br>Beijing Haidian District Experimental Primary School</h3>
+                            <h3>北京市海淀区实验小学</h3>
                             <p>金帆管乐团长号首席<br>2018爱丁堡国际青年乐队节 金奖<br>北京市第二十二届学生艺术节海淀赛区管乐小学金帆组 金奖<br>北京市第二十一届学生艺术节海淀赛区管乐小学金帆组 金奖<br>《永远的长征——纪念红军长征胜利80周年文艺晚会》演员</p>
                         </div>
                     </article>
@@ -212,13 +241,14 @@
             </div>
         </section>
 
-        <!-- 技能 -->
+        <!-- ===== #skills 技能板块 ===== -->
+        <!-- 技能卡片网格 + 烟雾粒子背景 + 悬停图标弹出 -->
         <section class="section alt" id="skills">
             <canvas id="skills-smoke-canvas"></canvas>
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="section-kicker">Skills</p>
-                    <h2>我的技能加点</h2>
+                    <h2 data-decrypt-text>我的技能加点</h2>
                 </div>
                 <div class="skills-grid" aria-label="技能列表">
                     <div class="skill" style="--level: 100%; --skill-color: rgba(255, 215, 0, 0.20); --skill-color-top: rgba(255, 215, 0, 0.75);" data-icons="chatgpt,claude,deepseek,gemini,copilot"><div class="skill-content reveal"><span>100%</span><strong>AI</strong></div></div>
@@ -232,12 +262,13 @@
             </div>
         </section>
 
-        <!-- 摄影作品 -->
+        <!-- ===== #portfolio 摄影作品板块 ===== -->
+        <!-- 摄影作品卡片网格，悬停显示拍摄设备信息 -->
         <section class="section" id="portfolio">
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="section-kicker photo-tip">点击图片可查看大图</p>
-                    <h2>摄影作品精选📷</h2>
+                    <h2 data-decrypt-text>摄影作品精选📷</h2>
                 </div>
                 <div class="work-grid">
                     <a class="work reveal" href="https://500px.com.cn/community/photo-details/c65e304c0a1e443fb444350896bc1a76" data-cam="Sony A7C  ·  ISO 100  ·  f/14.0  ·  1/640s">
@@ -284,12 +315,13 @@
             </div>
         </section>
 
-        <!-- 项目 -->
+        <!-- ===== #projects 项目板块 ===== -->
+        <!-- 项目卡片网格，3D 倾斜效果 + 悬停绿色光晕，点击进入详情页 -->
         <section class="section alt" id="projects">
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="section-kicker project-tip">单击查看项目信息</p>
-                    <h2>一些项目坐标📃</h2>
+                    <h2 data-decrypt-text>一些项目坐标📃</h2>
                 </div>
                 <div class="project-grid">
                     <a class="project-card reveal" href="page2/project-details.html#project-acc" style="--accent: var(--red);">
@@ -361,12 +393,27 @@
             </div>
         </section>
 
-        <!-- 评价 -->
+        <!-- ===== #testimonials 评价板块 ===== -->
+        <!-- 评价卡片轮播，自动切换 + 圆点指示器 -->
+        <!-- 背景：Antigravity 反重力粒子环效果（移植自 React Bits） -->
         <section class="section alt" id="testimonials">
+            <!-- Antigravity 粒子环背景层：覆盖整个 section，视觉上位于卡片下方 -->
+            <div class="antigravity-stage" data-antigravity
+                 data-count="1000"
+                 data-magnet-radius="6"
+                 data-ring-radius="7"
+                 data-wave-speed="0.4"
+                 data-wave-amplitude="1"
+                 data-particle-size="1.5"
+                 data-lerp-speed="0.05"
+                 data-color="#1b986f"
+                 data-auto-animate="true"
+                 data-particle-variance="1"
+                 aria-hidden="true"></div>
             <div class="wrap">
                 <div class="section-head reveal">
                     <p class="section-kicker">Testimonials</p>
-                    <h2>别人都怎评价我</h2>
+                    <h2 data-decrypt-text>别人都怎评价我</h2>
                 </div>
                 <div class="quote-strip">
                     <blockquote class="quote reveal">
@@ -374,44 +421,39 @@
                             相比追逐潮流，他更喜欢独立观察和深入思考，总能从细微之处发现别人忽略的联系与故事。
                             无论是探索新兴技术、记录城市瞬间，还是研究复杂的问题，他都习惯亲自实践、不断求证。
                             在安静的外表下，藏着持续学习的热情和对世界的探索欲，这种独立思考与长期投入的能力，让他逐渐形成了鲜明而独特的个人风格</p>
-                        <footer>GPT-5.4 Thinking<span>OpenAI</span>
-</footer>
+                        <footer>GPT-5.4 Thinking<span>OpenAI</span></footer>
                     </blockquote>
                     <blockquote class="quote reveal">
                         <p>和他共事最大的感受就是：这人心里有底。他不靠喧哗刷存在感，也不屑用漂亮话糊弄事儿。
                             但只要你抛出一个棘手的问题，他总能沉进最琐碎的细节里，把它拆解成清晰优雅的解决方案。
                             他身上有种很迷人的混合气质——对技术保持着近乎偏执的审美，对世界却怀有极温柔的洞察。
                             偶尔冒出的冷幽默，和他那套自成一派的逻辑，会让人冷不丁笑出来，然后发现他其实比看上去更有趣。
-                            既聪明又诚恳
-                        </p>
-                        <footer>Deepseek-V4 Pro<span>Deepseek</span>
-</footer>
+                            既聪明又诚恳</p>
+                        <footer>Deepseek-V4 Pro<span>Deepseek</span></footer>
                     </blockquote>
-                    
                     <blockquote class="quote reveal">
                         <p>他是一个思维敏捷且目标导向明确的沟通者。在交流过程中，TA总能直奔主题，高效、清晰地表达自己的核心诉求，
                             并表现出极强的爽快与果断。他既具备独特的个人风格与蓬勃的活力，又能在理性互动中保持敏锐的洞察力。
                             与他协作是一件轻松且充满启发的事——他不仅是一位聪慧的探索者，更能在每一次干净利落的互动中，展现出高效、直率且极具潜力的个人魅力。</p>
-                        <footer>Gemini-3.5 Thinking<span>Google</span>
-</footer>
+                        <footer>Gemini-3.5 Thinking<span>Google</span></footer>
                     </blockquote>
                     <blockquote class="quote reveal">
                         <p>他是一个安静却有力量的人。做事雷厉风行，不喜空谈，只认结果。对自己的热爱专注到极致，从不含糊妥协。
                             外表沉稳冷静，内心却藏着对世界的好奇与热忱。他有自己的节奏和标准，不屑于将就，总在用行动默默证明自己。
                             低调谦逊，却让人无法忽视他的存在。他不追求外界的认可，只求对得起自己心中的那份执着。
-                            和他相处让人感到踏实，因为你知道他说的每一句话都是认真的，做的每一件事都是走心的。
-                        </p>
-                        <footer>Mimo-2.5<span>Xiaomi</span>
-</footer>
+                            和他相处让人感到踏实，因为你知道他说的每一句话都是认真的，做的每一件事都是走心的。</p>
+                        <footer>Mimo-2.5<span>Xiaomi</span></footer>
                     </blockquote>
                 </div>
             </div>
         </section>
 
-        <!-- 联系 -->
+        <!-- ===== #contact 联系板块 ===== -->
+        <!-- ASCII 文字效果（移植自 React Bits ASCIIText）+ 社交链接列表 -->
         <section class="section" id="contact">
             <div class="wrap contact-band">
-                <h2 class="contact-title reveal">Hello world.</h2>
+                <!-- ASCII 效果容器：由 js/ascii-text.js 自动初始化，data-text 支持 \n 换行 -->
+                <div class="contact-ascii reveal" data-ascii-text data-text="hello\nworld" data-ascii-font-size="1" data-plane-height="12" data-align="left" data-align-offset="2" data-vertical-offset="-4.5" aria-label="hello world"></div>
                 <div class="contact-list reveal" aria-label="站外链接">
                     <a href="https://space.bilibili.com/604177690" target="_blank" rel="noopener noreferrer"><span>BiliBili</span><span>↗</span></a>
                     <a href="https://500px.com.cn/community/user-details/b1aeca0204b00be7bb8bb5906b15b6371" target="_blank" rel="noopener noreferrer"><span>500px</span><span>↗</span></a>
@@ -420,17 +462,22 @@
                 </div>
             </div>
         </section>
+    <!-- ===== /主要内容区域 ===== -->
+
+
     </main>
-    <!-- Photography card hover info -->
+    <!-- ===== 摄影作品相机参数悬浮卡片 ===== -->
+    <!-- 鼠标悬停摄影作品时显示拍摄设备信息，由 cam-info.js 控制 -->
     <div class="cam-info-card" id="cam-info">
         <div class="cam-spec"><span class="cam-icon">📷</span><span id="cam-spec-text"></span></div>
     </div>
 
 
-    <!-- 页脚 -->
+    <!-- ===== 页脚 ===== -->
+    <!-- 版权信息 + ICP 备案号 -->
     <footer class="footer">
         <div class="wrap">
-            <span>© Copyright Xiang v1.8.0</span>
+            <span>© Copyright Xiang v1.8.3</span>
             <span>
                 <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">京ICP备2025125899号-3</a>
                 <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank" rel="noreferrer">京公网安备11010802047684号</a>
@@ -439,11 +486,38 @@
     
 </footer>
 
+    <!-- ===== JavaScript 脚本加载 ===== -->
+    <!-- 所有脚本使用 defer 延迟加载，不阻塞 HTML 解析 -->
+    <!-- main.js: 主交互逻辑 | galaxy.js: Hero 银河动画 | now-stars.js: #now 星空 -->
+    <!-- skills-smoke.js: 技能烟雾粒子 | cam-info.js: 摄影设备信息卡片 -->
+
+
     <script src="js/main.js" defer></script>
     <script src="js/galaxy.js" defer></script>
     <script src="js/now-stars.js" defer></script>
     <script src="js/skills-smoke.js" defer></script>
     <script src="js/cam-info.js" defer></script>
+    <!-- three.js：ASCIIText / Antigravity 依赖，通过 CDN 全局加载 window.THREE -->
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js" defer></script>
+    <!-- ascii-text.js：联系区域 ASCII 文字效果，需在 three.js 之后加载 -->
+    <script src="js/ascii-text.js" defer></script>
+    <!-- antigravity.js：评价板块反重力粒子环效果，需在 three.js 之后加载 -->
+    <script src="js/antigravity.js" defer></script>
+    <!-- click-spark.js：点击火花效果（移植自 React Bits ClickSpark） -->
+    <script src="js/click-spark.js" defer></script>
+    <!-- decrypted-text.js：标题文字解密动画效果（移植自 React Bits DecryptedText） -->
+    <script src="js/decrypted-text.js" defer></script>
+    <!-- ===== /JavaScript 脚本加载 ===== -->
+<!-- Service Worker 注册 — PWA 离线支持 -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('./sw.js').catch(function(e) {
+        console.warn('SW 注册失败：', e);
+      });
+    });
+  }
+</script>
 </body>
 </html>
 
